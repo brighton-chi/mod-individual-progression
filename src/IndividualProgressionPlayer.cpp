@@ -734,7 +734,7 @@ public:
                     return;
             }
    
-            if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI)
+            if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI || killed->GetEntry() == GENERAL_NOKHOR)
             {
                 // no group
                 if (killed->GetEntry() == COLOSSUS_ZORA)
@@ -742,8 +742,10 @@ public:
                 else if (killed->GetEntry() == COLOSSUS_REGAL)
                     killer->CompleteQuest(QUEST_COLOSSUS_REGAL);
                 else if (killed->GetEntry() == COLOSSUS_ASHI)
-                    killer->CompleteQuest(QUEST_COLOSSUS_ASHI);    
-               
+                    killer->CompleteQuest(QUEST_COLOSSUS_ASHI);
+                else if (killed->GetEntry() == GENERAL_NOKHOR)
+                    killer->CompleteQuest(CHAOS_AND_DESTRUCTION);
+                
                 if (group)
                 {
                     for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
@@ -758,6 +760,8 @@ public:
                             member->CompleteQuest(QUEST_COLOSSUS_REGAL);
                         else if (killed->GetEntry() == COLOSSUS_ASHI)
                             member->CompleteQuest(QUEST_COLOSSUS_ASHI);
+                        else if (killed->GetEntry() == GENERAL_NOKHOR)
+                            member->CompleteQuest(CHAOS_AND_DESTRUCTION);
                     }
                 }
                 return;
