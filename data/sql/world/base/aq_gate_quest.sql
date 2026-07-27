@@ -101,7 +101,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM `quest_request_items` WHERE `ID` IN (108743, 108744);
 INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES 
 (108743, 1, 0, 'The Scarab Gong looms ominously before you. Steel yourself, $N; for once the Scarab Gong is rung, the gates of Ahn\'Qiraj will be opened.$B$BHowever, the Brood of Nozdomu and the Cenarion Circle will not reward you, unless you aid them.', 12340),
-(108744, 1, 0, 'To end the war we need to cut the head of the snake. Find and kill Lieutenant General Nokhor. Look for him near the hives.', NULL);
+(108744, 1, 0, 'To end the war we need to cut off the head of the snake. Find and kill Lieutenant General Nokhor. Look for him near the hives.', NULL);
 
 DELETE FROM `quest_offer_reward` WHERE `ID` IN (108743, 108744);
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
