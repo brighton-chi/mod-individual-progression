@@ -638,32 +638,52 @@ public:
         if (!sIndividualProgression->enabled || !killed || !killer || !killer->IsInWorld())
             return;
 
+        Group* group = killer->GetGroup();
+        uint32 entry = killed->GetEntry();
+
         if (killer->GetMap()->GetId() == MAP_DEADMINES)
         {
-            switch (killed->GetEntry())
+            if (entry == RHAHK_ZOR || entry == SNEED || entry == GILNID)
             {
-            case RHAHK_ZOR:
-                killer->RemoveAura(IPP_PHASE);
-                killer->RemoveAura(IPP_PHASE_II);
-                killer->RemoveAura(IPP_PHASE_III);
-                killer->CastSpell(killer, IPP_PHASE, false);
-                break;
-            case SNEED:
-                killer->RemoveAura(IPP_PHASE);
-                killer->RemoveAura(IPP_PHASE_II);
-                killer->RemoveAura(IPP_PHASE_III);
-                killer->CastSpell(killer, IPP_PHASE, false);
-                killer->CastSpell(killer, IPP_PHASE_II, false);
-                break;
-            case GILNID:
-                killer->RemoveAura(IPP_PHASE);
-                killer->RemoveAura(IPP_PHASE_II);
-                killer->RemoveAura(IPP_PHASE_III);
-                killer->CastSpell(killer, IPP_PHASE, false);
-                killer->CastSpell(killer, IPP_PHASE_II, false);
-                killer->CastSpell(killer, IPP_PHASE_III, false);
-                break;
+                if (group)
+                {
+                    for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                    {
+                        Player* member = itr->GetSource();
+                        if (!member || !sIndividualProgression->isNormalAccount(member))
+                            continue;
+
+                        switch (entry)
+                        {
+                        case RHAHK_ZOR:
+                            member->CastSpell(member, IPP_PHASE, false);
+                            break;
+                        case SNEED:
+                            member->CastSpell(member, IPP_PHASE_II, false);
+                            break;
+                        case GILNID:
+                            member->CastSpell(member, IPP_PHASE_III, false);
+                            break;
+                        }
+                    }
+                }
+                else // no group
+                {
+                    switch (entry)
+                    {
+                    case RHAHK_ZOR:
+                        killer->CastSpell(killer, IPP_PHASE, false);
+                        break;
+                    case SNEED:
+                        killer->CastSpell(killer, IPP_PHASE_II, false);
+                        break;
+                    case GILNID:
+                        killer->CastSpell(killer, IPP_PHASE_III, false);
+                        break;
+                    }
+                }
             }
+            return;
         }
 
         if (killer->GetMap()->GetId() == MAP_ALTERAC_VALLEY)
@@ -702,10 +722,9 @@ public:
                         bg->RewardHonorToTeam(198, teamId);
                 }
             }
+            return;
         }
 
-        Group* group = killer->GetGroup();
-        
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {       
             if (sIndividualProgression->disableDefaultProgression)
@@ -734,16 +753,8 @@ public:
                     return;
             }
    
-            if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI)
+            if (entry == COLOSSUS_ZORA || entry == COLOSSUS_REGAL || entry == COLOSSUS_ASHI || entry == GENERAL_NOKHOR)
             {
-                // no group
-                if (killed->GetEntry() == COLOSSUS_ZORA)
-                    killer->CompleteQuest(QUEST_COLOSSUS_ZORA);
-                else if (killed->GetEntry() == COLOSSUS_REGAL)
-                    killer->CompleteQuest(QUEST_COLOSSUS_REGAL);
-                else if (killed->GetEntry() == COLOSSUS_ASHI)
-                    killer->CompleteQuest(QUEST_COLOSSUS_ASHI);    
-               
                 if (group)
                 {
                     for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
@@ -752,18 +763,51 @@ public:
                         if (!member || !sIndividualProgression->isNormalAccount(member))
                             continue;
 
-                        if (killed->GetEntry() == COLOSSUS_ZORA)
-                            member->CompleteQuest(QUEST_COLOSSUS_ZORA);
-                        else if (killed->GetEntry() == COLOSSUS_REGAL)
-                            member->CompleteQuest(QUEST_COLOSSUS_REGAL);
-                        else if (killed->GetEntry() == COLOSSUS_ASHI)
-                            member->CompleteQuest(QUEST_COLOSSUS_ASHI);
+                        switch (entry)
+                        {
+                        case COLOSSUS_ZORA:
+                            if (member->HasQuest(QUEST_COLOSSUS_ZORA))
+                                member->CompleteQuest(QUEST_COLOSSUS_ZORA);
+                            break;
+                        case COLOSSUS_REGAL:
+                            if (member->HasQuest(QUEST_COLOSSUS_REGAL))
+                                member->CompleteQuest(QUEST_COLOSSUS_REGAL);
+                            break;
+                        case COLOSSUS_ASHI:
+                            if (member->HasQuest(QUEST_COLOSSUS_ASHI))
+                                member->CompleteQuest(QUEST_COLOSSUS_ASHI);
+                            break;
+                        case GENERAL_NOKHOR:
+                            if (member->HasQuest(CHAOS_AND_DESTRUCTION))
+                                member->CompleteQuest(CHAOS_AND_DESTRUCTION);
+                            break;
+                        }
+                    }
+                }
+                else // no group
+                {
+                    switch (entry)
+                    {
+                    case COLOSSUS_ZORA:
+                        if (killer->HasQuest(QUEST_COLOSSUS_ZORA))
+                            killer->CompleteQuest(QUEST_COLOSSUS_ZORA);
+                        break;
+                    case COLOSSUS_REGAL:
+                        if (killer->HasQuest(QUEST_COLOSSUS_REGAL))
+                            killer->CompleteQuest(QUEST_COLOSSUS_REGAL);
+                        break;
+                    case COLOSSUS_ASHI:
+                        if (killer->HasQuest(QUEST_COLOSSUS_ASHI))
+                            killer->CompleteQuest(QUEST_COLOSSUS_ASHI);
+                        break;
+                    case GENERAL_NOKHOR:
+                        if (killer->HasQuest(CHAOS_AND_DESTRUCTION))
+                            killer->CompleteQuest(CHAOS_AND_DESTRUCTION);
+                        break;
                     }
                 }
                 return;
             }
-
-            uint32 ENTRY_KILLED = killed->GetEntry();
 
             if (group)
             {
@@ -775,14 +819,14 @@ public:
 
                     if (killer->IsAtLootRewardDistance(member))
                     {
-                        if (!sIndividualProgression->hasCustomProgressionValue(ENTRY_KILLED))
+                        if (!sIndividualProgression->hasCustomProgressionValue(entry))
                             sIndividualProgression->checkKillProgression(member, killed);
                     }
                 }
             }
             else // no group
             {
-                if (!sIndividualProgression->hasCustomProgressionValue(ENTRY_KILLED))
+                if (!sIndividualProgression->hasCustomProgressionValue(entry))
                     sIndividualProgression->checkKillProgression(killer, killed);
             }
         }

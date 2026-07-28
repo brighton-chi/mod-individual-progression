@@ -44,7 +44,8 @@ enum ProgressionBossIDs
     GILNID               = 1763,
     COLOSSUS_ZORA        = 15740,
     COLOSSUS_REGAL       = 15741,
-    COLOSSUS_ASHI        = 15742
+    COLOSSUS_ASHI        = 15742,
+    GENERAL_NOKHOR       = 15818
 };
 
 enum BuffSpells
