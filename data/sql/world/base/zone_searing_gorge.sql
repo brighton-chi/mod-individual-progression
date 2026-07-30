@@ -68,6 +68,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 /* fix quest: Rise. Obsidion! */
 UPDATE `creature_template` SET `flags_extra` = 0  WHERE `entry` = 8400; -- Obsidion
 
+-- remove spawn on quest accept. This spawned multiple copies while in a party. you have to click the Altar of Suntara to start the event
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 8417;
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` = 8417;
+
 DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (839101);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (8391, 8400);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
