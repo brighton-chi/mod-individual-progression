@@ -39,7 +39,7 @@ DELETE FROM `quest_template_addon` WHERE `ID` IN (109681, 109684);
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `RewardMailTemplateID`, `RewardMailDelay`, 
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
 (109681, 0, 2, 0, 9678, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(109684, 0, 2, 0, 109681, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+(109684, 0, 2, 0, 109681, 9685, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
 DELETE FROM `quest_template_locale` WHERE `ID` IN (109681, 109684);
 INSERT INTO `quest_template_locale` (`ID`, `locale`, `Title`, `Details`, `Objectives`, `EndText`, `CompletedText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `VerifiedBuild`) VALUES 
