@@ -3272,7 +3272,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (113439, 0, 7, 8, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Wing Commander Vipore - On Waypoint Reached - Set Invisible'),
 (113439, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Wing Commander Vipore - On Waypoint Reached - Force Despawn'),
 (113439, 0, 9, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Wing Commander Vipore - In Combat - Cast Strike'),
-(113439, 0, 10, 0, 0, 0, 100, 0, 9000, 13000, 18000, 34000, 0, 0, 11, 16509, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Wing Commander Vipore - In Combat - Cast Rend'),
+(113439, 0, 10, 0, 0, 0, 100, 0, 9000, 13000, 18000, 34000, 0, 0, 11, 16509, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Wing Commander Vipore - In Combat - Cast Rend'),
 --
 (213179, 0, 0, 1, 62, 0, 100, 0, 65721, 0, 0, 0, 0, 0, 56, 17324, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Wing Commander Guse - On Gossip Select - Give Beacon'),
 (213179, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Wing Commander Guse - On Gossip Select - Despawn'),
