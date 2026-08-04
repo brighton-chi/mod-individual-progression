@@ -229,8 +229,8 @@ enum ShatteredSunOffensive
 enum ProgressionState : uint8         // Progression stands for what has been completed
 {
     PROGRESSION_START           = 0,
-    PROGRESSION_MOLTEN_CORE     = 1,  // BWL available
-    PROGRESSION_ONYXIA          = 2,
+    PROGRESSION_MOLTEN_CORE     = 1,
+    PROGRESSION_ONYXIA          = 2,  // BWL available
     PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
     PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war
     PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
