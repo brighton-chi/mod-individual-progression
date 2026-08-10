@@ -24,6 +24,9 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 (361000, 23071, 0, 0, 0, 2, 1, 1);
 
 -- Add Entrance transporter object. Necromantic Runestone (id: 189314, displayID: 7786)
+-- Custom GUIDs
+-- `gameobject` [5330509,5330511]
+SET @OGUID                := 5330509;
 SET @TRANSPORTER_ENTRY    := 361001;
 SET @TRANSPORTER_COOLDOWN := 5;
 SET @TRANSPORTER_X        := 3123.26;
@@ -36,10 +39,10 @@ INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconNa
 (@TRANSPORTER_ENTRY, 10, 7786, 'Teleport To Naxxramas', '', '', '', 1, @TRANSPORTER_COOLDOWN, 1, '', 'gobject_naxx40_tele', 12340);
 DELETE FROM `gameobject` WHERE `id` = @TRANSPORTER_ENTRY AND `map` = 0 AND `zoneId` = 0 AND `areaID` = 0;
 
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
--- (@TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0, -0.063658, -1, 1, 0, 1, '', 0);
-(@TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0, -1, 0, 1, 0, 1, '', 0);
+-- (@OGUID+0, @TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0, -0.063658, -1, 1, 0, 1, '', 0);
+(@OGUID+0, @TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0, -1, 0, 1, 0, 1, '', 0);
 
 DELETE FROM `gameobject_template_locale` WHERE `entry` = @TRANSPORTER_ENTRY;
 INSERT INTO `gameobject_template_locale` (`entry`, `locale`, `name`, `castBarCaption`, `VerifiedBuild`) VALUES
@@ -52,9 +55,9 @@ INSERT INTO `gameobject_template_locale` (`entry`, `locale`, `name`, `castBarCap
 -- Node 0 of PathID 436 in taxiPathNode
 -- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter%5B1%5D=436
 DELETE FROM `gameobject` WHERE `id` = 181056;
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
-(181056, 0, 0, 0, 1, 1, 3067.1255, -3533.4387, -331.89944, 0, 0, 0, -1, 0, 900, 100, 1, '', 0);
+(@OGUID+1, 181056, 0, 0, 0, 1, 1, 3067.1255, -3533.4387, -331.89944, 0, 0, 0, -1, 0, 900, 100, 1, '', 0);
 
 DELETE FROM `transports` WHERE `guid` = 21 AND `entry` = 181056;
 INSERT INTO `transports` (`guid`, `entry`, `name`, `ScriptName`) VALUES
@@ -66,8 +69,8 @@ UPDATE `gameobject_template` SET `Data1` = 1, `Data6` = 0 WHERE `entry` = 181056
 -- Meeting Stone
 -- specific Naxxramas in Eastern Kingdoms
 DELETE FROM `gameobject` WHERE `id` = 193166 AND `map` = 0;
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
-(193166, 0, 0, 0, 1, 1, 3072.64, -3886.67, 130.449, 2.4011, 0.0, 0.0, -0.932239, -0.361844, 300, 0, 1, '', 0);
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
+(@OGUID+2, 193166, 0, 0, 0, 1, 1, 3072.64, -3886.67, 130.449, 2.4011, 0.0, 0.0, -0.932239, -0.361844, 300, 0, 1, '', 0);
 -- Update meeting stone requirements (previous: minLvl 15)
 -- AreaTable ID: 3456 ContinentID: 533
 -- https://wow.tools/dbc/?dbc=areatable&build=3.3.5.12340#page=1&search=3456

@@ -1,8 +1,12 @@
+-- Custom GUIDs
+-- `gameobject` [651000,651002]
+SET @OGUID := 651000;
+
 DELETE FROM `gameobject` WHERE `id` IN (176146, 176147, 176148);
-INSERT INTO `gameobject` (`id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES 
-(176146, 1, -8133.34, 1525.13, 17.1904, 6.28103, 0.00107995, -0.999999, 600, 100, 1), -- Gate of Ahn'Qiraj
-(176147, 1, -8133.34, 1525.13, 17.1904, 6.28103, 0.00107995, -0.999999, 600, 100, 1), -- Ahn'Qiraj Gate Roots
-(176148, 1, -8133.34, 1525.13, 17.1904, 6.28103, 0.00107995, -0.999999, 600, 100, 1); -- Ahn'Qiraj Gate Runes
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES 
+(@OGUID+0, 176146, 1, -8133.34, 1525.13, 17.1904, 6.28103, 0.00107995, -0.999999, 600, 100, 1), -- Gate of Ahn'Qiraj
+(@OGUID+1, 176147, 1, -8133.34, 1525.13, 17.1904, 6.28103, 0.00107995, -0.999999, 600, 100, 1), -- Ahn'Qiraj Gate Roots
+(@OGUID+2, 176148, 1, -8133.34, 1525.13, 17.1904, 6.28103, 0.00107995, -0.999999, 600, 100, 1); -- Ahn'Qiraj Gate Runes
 
 -- Ghost Gate - should not be placed, remove it if it is present
 DELETE FROM `gameobject` WHERE `id` = 180322;
