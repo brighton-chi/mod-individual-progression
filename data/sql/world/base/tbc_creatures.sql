@@ -27,6 +27,9 @@ UPDATE `creature_template` SET `DamageModifier` = 2.5 WHERE `entry` = 9095;
 /*  Restless Shade  */
 UPDATE `creature_template` SET `minlevel` = 68, `maxlevel` = 69, `HealthModifier` = 1, `ArmorModifier` = 1, `unit_class` = 1 WHERE `entry` = 7370;
 
+/*  Zuluhed the Whacked  */
+UPDATE `creature_template` SET `subname` = 'Chieftain of the Dragonmaw Clan', `minlevel` = 72, `maxlevel` = 72, `detection_range` = 20, `rank` = 3, `DamageModifier` = 7.5, `HealthModifier` = 20, `ManaModifier` = 30 WHERE `entry` = 11980;
+
 /*  Wailing Spectre  */
 UPDATE `creature_template` SET `minlevel` = 69, `maxlevel` = 70, `DamageModifier` = 1, `HealthModifier` = 1, `ArmorModifier` = 1 WHERE `entry` = 12377;
 
