@@ -50,7 +50,7 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 -- (3,53408,1000,0,0,0,0,0,12,0), -- optional, Judgement of Wisdom, level 12 -> 71
 -- (3,62124,3000,0,0,0,0,0,16,0), -- optional, Hand of Reckoning, level 16 -> 71
 
-DELETE FROM `trainer_spell` WHERE `TrainerId` = 4 AND `SpellId` IN (5502, 13820, 23214, 23215, 25290, 25291, 25292, 34766, 34767, 53736);
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 4 AND `SpellId` IN (5502, 13820, 23214, 23215, 25290, 25291, 25292, 34766, 34767, 34768, 53736);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
 -- (4,5502,4000,0,0,0,0,0,20,0), -- quest, Sense Undead
 -- (4,13820,3500,0,0,0,0,0,40,0), -- quest, Summon Warhorse
