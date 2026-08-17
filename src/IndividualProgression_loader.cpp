@@ -32,6 +32,7 @@ void AddSC_boss_razuvious_40();
 void AddSC_boss_sapphiron_40();
 void AddSC_boss_thaddius_40();
 void AddSC_npc_omarion_40();
+void AddSC_npc_karynaku_70();
 void AddSC_custom_spells_40();
 void AddSC_custom_creatures_40();
 void AddSC_custom_gameobjects_40();
@@ -58,18 +59,18 @@ void AddSC_serpentshrine_cavern_70();
 void Addmod_individual_progressionScripts()
 {
     AddSC_mod_individual_progression();
-    AddSC_boss_onyxia_40();
     AddSC_instance_onyxias_lair_40();
     AddSC_instance_blackrock_spire_50_59_B();
     AddSC_instance_blackrock_depths_50_59_B();
     AddSC_instance_stratholme_50_59_B();
     AddSC_instance_molten_core_60_1_A();
+    AddSC_instance_naxxramas();
     AddSC_quest_jail_break_60_2();
     AddSC_quest_the_masquerade_60_2();
+    AddSC_boss_onyxia_40();
     AddSC_boss_lord_kazzak_60_2();
     AddSC_boss_chromaggus_60_2_A();
     AddSC_boss_drakkisath_50_59_B();
-    AddSC_instance_naxxramas();
     AddSC_boss_anubrekhan_40();
     AddSC_boss_faerlina_40();
     AddSC_boss_four_horsemen_40();
@@ -86,6 +87,8 @@ void Addmod_individual_progressionScripts()
     AddSC_boss_sapphiron_40();
     AddSC_boss_thaddius_40();
     AddSC_npc_omarion_40();
+    AddSC_npc_karynaku_70();
+    AddSC_npc_archmage_timear();
     AddSC_custom_spells_40();
     AddSC_custom_creatures_40();
     AddSC_custom_gameobjects_40();
@@ -104,7 +107,6 @@ void Addmod_individual_progressionScripts()
     AddSC_mod_individual_progression_ioq();
     AddSC_mod_individual_progression_spells();
     AddSC_mod_individual_progression_av_quests();
-    AddSC_npc_archmage_timear();
     AddSC_karazhan_70();
     AddSC_the_eye_70();
     AddSC_serpentshrine_cavern_70();

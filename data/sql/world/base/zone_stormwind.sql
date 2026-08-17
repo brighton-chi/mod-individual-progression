@@ -315,6 +315,9 @@ DELETE FROM `creature` WHERE `id` IN
 /* NPC Rebecca Laughlin - Remove non-Vanilla Tabards */
 DELETE FROM `npc_vendor` WHERE `entry`= 5193 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
+-- give Thomas Miller his loaf of bread back
+UPDATE `creature_addon` SET `bytes2` = 1 WHERE `guid` = 79723;
+
 -- Summon Felsteed (Warlock)
 DELETE FROM `quest_offer_reward` WHERE `ID` = 4488;
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES 

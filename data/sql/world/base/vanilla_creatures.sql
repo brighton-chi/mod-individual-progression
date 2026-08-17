@@ -17653,9 +17653,6 @@ UPDATE `creature_template` SET `detection_range` = 18.0, `DamageModifier` = 1.0 
 /*  Kim Bridenbecker  */
 UPDATE `creature_template` SET `DamageModifier` = 0.9 WHERE `entry` = 11979;
 
-/*  Zuluhed the Whacked  */
-UPDATE `creature_template` SET `subname` = 'Dragonmaw Chieftain', `minlevel` = 62, `maxlevel` = 62, `detection_range` = 18.0, `rank` = 3, `DamageModifier` = 1.0, `HealthModifier` = 5.0, `ManaModifier` = 1.0 WHERE `entry` = 11980;
-
 /*  Flamegor  */
 UPDATE `creature_template` SET `mingold` = 1208090, `maxgold` = 1208090 WHERE `entry` = 11981;
 
