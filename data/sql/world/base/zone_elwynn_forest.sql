@@ -117,6 +117,9 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (459, 1598);
 DELETE FROM `creature_queststarter` WHERE `id` = 459 AND `quest` = 1598;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (459, 1598);
 
+-- Replace the glowing mace with the normal one.
+UPDATE `creature_equip_template` SET `ItemID1` = 1901 WHERE `CreatureID` = 257;
+
 -- update creature models
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 604   WHERE `CreatureID` = 69;  -- Diseased Timber Wolf
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 10912 WHERE `CreatureID` = 257; -- Kobold Worker
