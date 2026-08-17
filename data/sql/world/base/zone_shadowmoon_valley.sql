@@ -61,6 +61,9 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 (@CGUID+362, 22332, 530, 0, 0, 1, 1, 0, -4151.71, 228.527, 168.212, 1.83387, 10, 0, 0, 27044, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+363, 22332, 530, 0, 0, 1, 1, 0, -4337.75, 380.471, 135.265, 5.64305, 10, 0, 0, 27044, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
+UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` = 11980; -- remove civilian flag
+UPDATE `creature_template` SET `unit_flags` = 2  WHERE `entry` = 22332; -- set not attackable
+
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (11980, 22331, 22332);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (11980, 22331);
 DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1198000, 1198001);
