@@ -119,6 +119,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-(@CGUID+363), 0, 2, 0, 108, 0, 100, 0, 14, @WPID+3630, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Brood of Neltharaku - On Waypoint Reached - Set Visible Off'),
 (-(@CGUID+363), 0, 3, 0, 108, 0, 100, 0, 14, @WPID+3630, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Brood of Neltharaku - On Waypoint Reached - Despawn');
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 13 AND `SourceGroup` IN (1, 2) AND `SourceEntry` = 38866;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`,
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(13, 1, 38866, 0, 0, 31, 0, 3, 22331, 0, 0, 0, 0, "", "Set Dragonmaw Elite as target of Arcane Breath"),
+(13, 2, 38866, 0, 0, 31, 0, 3, 22331, 0, 0, 0, 0, "", "Set Dragonmaw Elite as target of Arcane Breath");
+
 DELETE FROM `creature_movement_override` WHERE `SpawnId` BETWEEN @CGUID+361 AND @CGUID+363;
 INSERT INTO `creature_movement_override` (`SpawnId`, `Ground`, `Swim`, `Flight`, `Rooted`) VALUES
 (@CGUID+361, 1, 0, 2, 0),
