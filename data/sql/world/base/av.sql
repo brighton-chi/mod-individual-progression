@@ -2390,7 +2390,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (14188, 7364); -- Gnomeregan Bounty
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7361, 7362, 7363, 7364, 7365, 7366, 7367, 7368, 7401, 7402); -- not repeatable quests
-UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (7301, 7302); -- QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7301, 7302); -- remove QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` = 7402; -- alliance only
 
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7361 WHERE `ID` = 7421; -- Darkspear Defense
