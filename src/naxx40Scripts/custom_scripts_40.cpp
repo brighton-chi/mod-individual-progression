@@ -4,6 +4,7 @@
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
+#include "IndividualProgression.h"
 
 class NaxxPlayerScript : public PlayerScript
 {
@@ -26,13 +27,15 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
     {
+        Group* group = player->GetGroup();
+
         // Do not allow entrance to Naxx 40 from Northrend
-        // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
-        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
-        if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
+        if (group && group->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
+            group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+
+        if (player->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-        }
+
         switch (areaTrigger->entry)
         {
             // Naxx 10 and 25 entrances
@@ -49,6 +52,7 @@ public:
                 player->TeleportTo(533, 2992.5f, -3434.42f, 293.94f, 3.13f);
                 break;
         }
+
         return true;
     }
 };
@@ -95,9 +99,27 @@ public:
         if (player->IsGameMaster())
             return;
 
-        // Check if mapId equals to Naxxramas (mapId: 533)
-        if (map->GetId() != 533)
+        if (map->GetId() != 533)  // Check if mapId equals to Naxxramas (mapId: 533)
             return;
+
+        if (!sIndividualProgression->requireNaxxStrath)
+            return;
+
+        if (player->GetLevel() > 70)
+            return;
+
+        if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // Death Knights
+            return;
+
+        if (!sIndividualProgression->isAttuned(player))
+            return;
+
+        Group* group = player->GetGroup();
+
+        if (group)
+            group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+
+        player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
 
         // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
         if (player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED)

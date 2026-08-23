@@ -1,9 +1,9 @@
+#include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "GameObjectAI.h"
-#include "Player.h"
 #include "naxxramas.h"
 #include "IndividualProgression.h"
 
@@ -41,14 +41,10 @@ public:
                 allowed = false;
             }
 
-            if (sIndividualProgression->requireNaxxStrath)
+            if (sIndividualProgression->requireNaxxStrath && player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED)
             {
-                if (player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_COMPLETE) {}
-                else
-                {
-                    handler.PSendSysMessage("You need to enter through Stratholme first. (RequireNaxxStrathEntrance is enabled)");
-                    allowed = false;
-                }
+                handler.PSendSysMessage("You need to enter Naxxramas through Stratholme first.");
+                allowed = false;
             }
 
             if (!sIndividualProgression->isAttuned(player))
@@ -82,14 +78,10 @@ public:
 
                     bool allowed = true;
 
-                    if (sIndividualProgression->requireNaxxStrath)
+                    if (sIndividualProgression->requireNaxxStrath && member->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED)
                     {
-                        if (member->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_COMPLETE) {}
-                        else
-                        {
-                            handler.PSendSysMessage("|cff00ffff{}|r needs to enter through Stratholme first. (RequireNaxxStrathEntrance is enabled)", member->GetName());
-                            allowed = false;
-                        }
+                        handler.PSendSysMessage("|cff00ffff{}|r needs to enter Naxxramas through Stratholme first.", member->GetName());
+                        allowed = false;
                     }
 
                     if (sIndividualProgression->hasPassedProgression(member, PROGRESSION_TBC_TIER_5)) // death knights
