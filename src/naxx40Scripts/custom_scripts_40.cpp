@@ -32,7 +32,8 @@ public:
         // Do not allow entrance to Naxx 40 from Northrend
         if (group && group->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
             group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-        else if (player->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
+
+        if (player->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
 
         switch (areaTrigger->entry)
