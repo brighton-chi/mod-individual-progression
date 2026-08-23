@@ -215,6 +215,8 @@ UPDATE `creature_loot_template` SET `Chance` = 5  WHERE `Item` = 3349 AND `Entry
 
 -- missing patrols
 DELETE FROM `pool_creature` WHERE `pool_entry` = 1072; -- remove 22 spawn locations used by AC, we are now using waypoints
+DELETE FROM `pool_template` WHERE `entry` = 1072; -- old values (1072, 1, 'Mirelow (14424)')
+
 DELETE FROM `creature` WHERE `id` IN (14424);
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
