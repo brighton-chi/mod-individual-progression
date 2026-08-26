@@ -2387,7 +2387,8 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (14186, 7422), -- Tuft it Out (repeatable)
 (14187, 7365), -- Staghelm's Requiem
 (14187, 7425), -- Staghelm's Mojo Jamboree (repeatable)
-(14188, 7364); -- Gnomeregan Bounty
+(14188, 7364), -- Gnomeregan Bounty
+(14188, 7424); -- What the Hoof? (repeatable)
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7361, 7362, 7363, 7364, 7365, 7366, 7367, 7368, 7401, 7402); -- not repeatable quests
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7301, 7302); -- remove QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
