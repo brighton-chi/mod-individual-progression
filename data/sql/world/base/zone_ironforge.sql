@@ -44,12 +44,12 @@ DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 5109;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (5109, 0, 0, 0, 1, 0, 100, 0, 1000, 15000, 40000, 60000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Myra Tyrngaarde - Out of Combat - Say Random Line (group 0)');
 
--- AzerothCore base creature_addon rows, restored
+-- Myra: path 1220 is her own 13-node Commons circuit.
 DELETE FROM `creature_addon` WHERE `guid` = 122;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (122, 1220, 0, 0, 1, 0, 0, NULL);
 
--- Grand Mason Marblesten - ambient route, keeps his mining emote
+-- Grand Mason Marblesten (2790) - ambient route
 DELETE FROM `waypoint_data` WHERE `id` = 27900;
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`) VALUES
 (27900, 1, -5033.81, -1022.23, 508.876, 3.8613, 30000, 0),
@@ -61,7 +61,7 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (2790, 27900, 0, 0, 1, 233) ON DUPLICATE KEY UPDATE `path_id` = VALUES(`path_id`);
 UPDATE `creature` SET `MovementType` = 2 WHERE `guid` = 100 AND `id` = 2790;
 
--- Bixi Wobblebonk - ambient route
+-- Bixi Wobblebonk (13084) - ambient route
 DELETE FROM `waypoint_data` WHERE `id` = 130840;
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`) VALUES
 (130840, 1, -5042.06, -1205.56, 508.901, 0.9774, 141000, 0),
@@ -98,7 +98,7 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (13084, 130840, 0, 0, 1, 0) ON DUPLICATE KEY UPDATE `path_id` = VALUES(`path_id`);
 UPDATE `creature` SET `MovementType` = 2 WHERE `guid` = 89 AND `id` = 13084;
 
--- AzerothCore base creature_text rows, restored
+-- Myra Tyrngaarde's three bread-vendor lines (group 0).
 DELETE FROM `creature_text` WHERE (`CreatureID`, `GroupID`) IN ((5109,0));
 INSERT INTO `creature_text` VALUES
 (5109,0,0,'Fresh Bread! Get your oven fresh bread here!',12,7,100,0,0,0,4014,0,'Myra Tyrngaarde'),
@@ -106,11 +106,7 @@ INSERT INTO `creature_text` VALUES
 (5109,0,2,'Come get yer fresh bread!',12,7,100,0,0,0,4015,0,'Myra Tyrngaarde');
 
 
--- ---------------------------------------------------------------------------
--- Quest scenes
--- ---------------------------------------------------------------------------
-
--- Lines AzerothCore never stored
+-- Lines that AzerothCore never stored
 DELETE FROM `creature_text` WHERE (`CreatureID`, `GroupID`) IN ((2916,2), (2916,3), (8507,0));
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (2916, 2, 0, 'Hammertoe, you''re as smart as you were stubborn in life and even in death. What can you tell me, ole friend?', 12, 0, 100, 0, 0, 0, 917, 0, 'Historian Karnik - quest 724 opening line'),
@@ -118,7 +114,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (8507, 0, 0, 'Oh, $n, wait a minute! There''s one more thing! Come back!', 12, 0, 100, 22, 0, 0, 4451, 0, 'Tymor - quest 3449 accept, carries the shout emote');
 
 
--- Sara Balloo - quest 637 scene, paced with emotes
+-- Sara Balloo (2695) quest 637 - AzerothCore fired both lines at once, with no emotes
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 2695;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 2695;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
@@ -136,19 +132,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2695001, 9, 8, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Sara Balloo - Remove Active');
 
 
--- Tymor - quest 3449 accept line
+-- Tymor (8507) quest 3449 accept
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 8507;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 8507;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (8507, 0, 0, 0, 19, 0, 100, 0, 3449, 0, 0, 0, 0, 0, 80, 8507001, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Tymor - On Quest 3449 Accepted - Run Script');
 DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 8507001;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
--- Shout rides on the text row's Emote so it goes out with the line, not after it
+-- One row, not two: CreatureTextMgr::SendChat fires the row's Emote immediately before the
+-- chat packet, so the shout and the line go out together instead of the line clipping it.
 (8507001, 9, 0, 0, 0, 0, 100, 0, 500, 500, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Tymor - Say Line 0 (emote 22 rides on the text row)');
 
 
--- Muren Stormpike - quest 1680 accept: turns, waves, speaks, turns back
--- Link chain, not a timed list - a quest-accept event is synchronous (doc 2q)
+-- Muren Stormpike (6114) quest 1680 accept
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 6114;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 6114;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
@@ -160,7 +156,7 @@ DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 6114001;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (6114001, 9, 0, 0, 0, 0, 100, 0, 4000, 4000, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0.84, 'Muren Stormpike - Turn Back To Post');
 
--- Tormus Deepforge - quest 1681: walks to The Great Anvil, works, walks back, reports
+-- Tormus Deepforge (6031) quest 1681 - walks to The Great Anvil, works, walks back, reports.
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 6031;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 6031;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
@@ -182,7 +178,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6031002, 9, 3, 0, 0, 0, 100, 0, 3900, 3900, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 4.60767, 'Tormus Deepforge - Resume His Usual Facing');
 
 
--- Historian Karnik - quest 724: adds his opening line to Hammertoe and holds the summon for it
+-- Historian Karnik (2916) quest 724
 DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 291600;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (291600, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Karnik - Remove Gossip/Questgiver'),
@@ -197,7 +193,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (291600, 9, 9, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1.76278, 'Karnik - Restore facing'),
 (291600, 9, 10, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Karnik - Add Gossip/Questgiver');
 
--- Historian Karnik - quest 3448 accept line
+-- Historian Karnik (2916) quest 3448 accept - one line, three seconds later
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 2916 AND `id` = 1;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (2916, 0, 1, 0, 19, 0, 100, 0, 3448, 0, 0, 0, 0, 0, 80, 2916002, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Historian Karnik - On Quest 3448 Accepted - Run Script');
@@ -205,7 +201,7 @@ DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 2916002;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (2916002, 9, 0, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Historian Karnik - Say Line 3');
 
--- Klockmort Spannerspan - quest 1708: steps to his bench, works, returns and reports
+-- Klockmort Spannerspan (6169) quest 1708 - steps to his bench, works, returns and reports.
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 6169;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 6169;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
@@ -229,8 +225,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6169002, 9, 1, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 82, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Klockmort Spannerspan - Add Questgiver Flag'),
 (6169002, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Klockmort Spannerspan - Clear Active');
 
--- Talvash del Kissel - quest 2204: fetches a spell focus from his house and repairs the necklace
--- His id 1 row (the /train emote credit) is left alone
+-- Talvash del Kissel (6826) quest 2204 - fetches a spell focus from his house and repairs the necklace.
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 6826 AND `id` IN (2, 3);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (6826, 0, 2, 3, 20, 0, 100, 0, 2204, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Talvash del Kissel - On Quest 2204 Rewarded - Walk, do not run'),
@@ -258,7 +253,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6826002, 9, 15, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Talvash del Kissel - Say Line 5'),
 (6826003, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 3.3161, 'Talvash del Kissel - Resume His Usual Facing');
 
--- Laris Geardawdle - quest 4512: carries the slime sample over and reacts to it
+-- Laris Geardawdle (9616) quest 4512 - carries the slime sample over and reacts to it.
 DELETE FROM `creature_text` WHERE `CreatureID` = 9616;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (9616, 0, 0, 'Incredible! Amazing! I don''t even know what this means!', 12, 0, 100, 0, 0, 0, 5447, 0, 'Laris Geardawdle - quest 4512');
@@ -284,8 +279,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9616002, 9, 0, 0, 0, 0, 100, 0, 2000, 2000, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Laris Geardawdle - Clear Active'),
 (9616002, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Laris Geardawdle - Add Questgiver Flag');
 
--- Curator Thorius - quest 3182: carries the horn to its display, mounts it, resumes his route
--- Also spawns the Horn of Margol the Rager, which had a template here but no spawn
+-- Curator Thorius (8256) quest 3182 - carries the horn to its display and mounts it.
 DELETE FROM `gameobject` WHERE `guid` = 1471360;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES
 (1471360, 147136, 0, 1, 1, -4629.5, -1279.51, 503.381, 2.32129, 0, 0, 0.91706, 0.39875, -60, 100, 1);
@@ -312,8 +306,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8256001, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Curator Thorius - Clear Active'),
 (8256001, 9, 7, 0, 0, 0, 100, 0, 8000, 8000, 0, 0, 0, 0, 232, 18870, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Curator Thorius - Resume His Ambient Patrol');
 
--- Grand Mason Marblesten - quest 689: walks down and carves the Memorial to Sully Balloo
--- WAYPOINT_START sits on the link chain, never inside a timed action list (doc 2g)
+-- Grand Mason Marblesten (2790) quest 689 - carves the Memorial to Sully Balloo
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 2790;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 2790;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
@@ -325,9 +318,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2790, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 27901, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Grand Mason Marblesten - Link - Start Quest Path'),
 (2790, 0, 6, 0, 108, 0, 100, 0, 6, 27901, 0, 0, 0, 0, 80, 2790001, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Grand Mason Marblesten - On Reaching The Memorial - Run Script'),
 (2790, 0, 7, 0, 108, 0, 100, 0, 11, 27901, 0, 0, 0, 0, 80, 2790002, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Grand Mason Marblesten - On Returning To His Post - Run Script');
--- Grand Mason Marblesten - the work scene at the memorial, then back to his ambient route
--- Both halves are needed to restore him: repeat = 1 on the ambient path, and the addon
--- mining emote set again by hand (doc 2q)
+
+-- Grand Mason Marblesten - the work scene at the memorial (node 6 of quest path 27901) and the
+-- restoration of his ambient behaviour afterwards.
 DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (2790001, 2790002, 2790003);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (2790001, 9, 0, 0, 0, 0, 100, 0, 2000, 2000, 0, 0, 0, 0, 17, 233, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Grand Mason Marblesten - Emote State Work Mining'),
@@ -343,9 +336,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2790002, 9, 2, 0, 0, 0, 100, 0, 10, 10, 0, 0, 0, 0, 82, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Grand Mason Marblesten - Add Questgiver Flag'),
 (2790002, 9, 3, 0, 0, 0, 100, 0, 5, 5, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 'Grand Mason Marblesten - Clear Active');
 
--- King Magni Bronzebeard - his Brokering of Peace yell (quest 8484); group 0 already shipped
--- Driven from src/vanillaScripts/zone_ironforge.cpp, NOT SmartAI - his ScriptName owns the
--- AI slot, so AIName here would never run. Do not add one.
+-- King Magni Bronzebeard 2784
+--   683  Sara Balloo's Plea     - delay 0,    broadcast 860,   text emote (ChatTypeID 2)
+--   8484 The Brokering of Peace - delay 1000, broadcast 11308, yell (ChatTypeID 1)
+--
+-- The scenes themselves are C++ in zone_ironforge.cpp: Magni carries
+-- `creature_template`.`ScriptName` = 'npc_king_magni_bronzebeard' and
+-- `CreatureAISelector::SelectAI` tests ScriptName before AIName, so `AIName` = 'SmartAI' on this
+-- entry would never run. Do NOT add one here.
+
 DELETE FROM `creature_text` WHERE `CreatureID` = 2784 AND `GroupID` = 1;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (2784, 1, 0, 'Let it be known that $n - Alliance $C - has earned the undying respect of Ironforge and the Alliance as a whole.  $GHe : She; has engaged in great diplomacy with Timbermaw Hold and performed valiant actions for them on our behalf.   $GHe : She; has gone above and beyond the call of duty.  Three cheers for $n - a true hero of the Alliance!', 14, 0, 100, 5, 0, 0, 11308, 0, 'King Magni Bronzebeard - The Brokering of Peace');
