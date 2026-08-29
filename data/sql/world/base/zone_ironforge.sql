@@ -206,7 +206,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
-(2916, 0, 1, 0, 19, 0, 100, 0, 3448, 0, 0, 0, 0, 0, 80, 291602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                 'Historian Karnik - On Quest 3448 Accepted - Run Script'),
+(2916, 0, 1, 0, 19, 0, 100, 0, 3448, 0, 0, 0, 0, 0, 80, 2916002, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                'Historian Karnik - On Quest 3448 Accepted - Run Script'),
 --
 (2916001, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                       'Historian Karnik - Remove Gossip/Questgiver'),
 (2916001, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 2.30863,                 'Historian Karnik - Face Hammertoe spot'),
