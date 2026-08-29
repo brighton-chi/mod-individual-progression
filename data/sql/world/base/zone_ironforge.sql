@@ -198,35 +198,27 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (6031002, 9, 3, 0, 0, 0, 100, 0, 3900, 3900, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 4.60767,           'Tormus Deepforge - Resume His Usual Facing');
 
 -- Historian Karnik (2916) quest 724
-DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 291600;
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
-`event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
---
-(291600, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                        'Karnik - Remove Gossip/Questgiver'),
-(291600, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 2.30863,                  'Karnik - Face Hammertoe spot'),
-(291600, 9, 2, 0, 0, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 11, 4985, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,               'Karnik - Cast Summon Hammertoe''s Spirit'),
-(291600, 9, 3, 0, 0, 0, 100, 0,0,0,0,0,0,0, 12, 2915, 3, 32000, 0,0,0, 8, 0,0,0, -4633.14, -1324.99, 503.383, 5.447,   'Karnik - Summon Hammertoe''s Spirit (32s, outlasts the scene)'),
-(291600, 9, 4, 0, 0, 0, 100, 0, 3300, 3300, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                   'Karnik - Say Line 2 (CMaNGOS opening, was missing)'),
-(291600, 9, 5, 0, 0, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 19, 2915, 0, 0, 0, 0, 0, 0,               'Hammertoe''s Spirit - Say Line 0'),
-(291600, 9, 6, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                   'Karnik - Say Line 0'),
-(291600, 9, 7, 0, 0, 0, 100, 0, 5200, 5200, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 19, 2915, 0, 0, 0, 0, 0, 0,               'Hammertoe''s Spirit - Say Line 1'),
-(291600, 9, 8, 0, 0, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                   'Karnik - Say Line 1'),
-(291600, 9, 9, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1.76278,                  'Karnik - Restore facing'),
-(291600, 9, 10, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                       'Karnik - Add Gossip/Questgiver');
-
--- Historian Karnik (2916) quest 3448 accept - one line, three seconds later
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 2916;
-DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 2916002;
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (2916001, 2916002);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
-(2916, 0, 1, 0, 19, 0, 100, 0, 3448, 0, 0, 0, 0, 0, 80, 2916002, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                'Historian Karnik - On Quest 3448 Accepted - Run Script'),
+(2916, 0, 1, 0, 19, 0, 100, 0, 3448, 0, 0, 0, 0, 0, 80, 291602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                 'Historian Karnik - On Quest 3448 Accepted - Run Script'),
 --
+(2916001, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                       'Historian Karnik - Remove Gossip/Questgiver'),
+(2916001, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 2.30863,                 'Historian Karnik - Face Hammertoe spot'),
+(2916001, 9, 2, 0, 0, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 11, 4985, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,              'Historian Karnik - Cast Summon Hammertoe''s Spirit'),
+(2916001, 9, 3, 0, 0, 0, 100, 0,0,0,0,0,0,0, 12, 2915, 3, 32000, 0,0,0, 8, 0,0,0, -4633.14, -1324.99, 503.383, 5.447,  'Historian Karnik - Summon Hammertoe''s Spirit (32s, outlasts the scene)'),
+(2916001, 9, 4, 0, 0, 0, 100, 0, 3300, 3300, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                  'Historian Karnik - Say Line 2 (CMaNGOS opening, was missing)'),
+(2916001, 9, 5, 0, 0, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 19, 2915, 0, 0, 0, 0, 0, 0,              'Hammertoe Spirit - Say Line 0'),
+(2916001, 9, 6, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                  'Historian Karnik - Say Line 0'),
+(2916001, 9, 7, 0, 0, 0, 100, 0, 5200, 5200, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 19, 2915, 0, 0, 0, 0, 0, 0,              'Hammertoe Spirit - Say Line 1'),
+(2916001, 9, 8, 0, 0, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                  'Historian Karnik - Say Line 1'),
+(2916001, 9, 9, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1.76278,                 'Historian Karnik - Restore facing'),
+(2916001, 9, 10, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                      'Historian Karnik - Add Gossip/Questgiver'),
 (2916002, 9, 0, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                  'Historian Karnik - Say Line 3');
 
 -- Klockmort Spannerspan (6169) quest 1708 - steps to his bench, works, returns and reports.
@@ -385,7 +377,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (2790001, 9, 5, 0, 0, 0, 100, 0, 5600, 5600, 0, 0, 0, 0, 66, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1.26,              'Grand Mason Marblesten - Turn Around (away from the memorial)'),
 (2790001, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                        'Grand Mason Marblesten - Say Line 2 (guards will be along)'),
 (2790001, 9, 7, 0, 0, 0, 100, 0, 2000, 2000, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                  'Grand Mason Marblesten - Emote Bow'),
---
 (2790002, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 17, 233, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                     'Grand Mason Marblesten - Restore His Working Animation (addon emote 233)'),
 (2790002, 9, 1, 0, 0, 0, 100, 0, 500, 500, 0, 0, 0, 0, 232, 27900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,              'Grand Mason Marblesten - Resume His Ambient Path (repeating)'),
 (2790002, 9, 2, 0, 0, 0, 100, 0, 10, 10, 0, 0, 0, 0, 82, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,                     'Grand Mason Marblesten - Add Questgiver Flag'),
