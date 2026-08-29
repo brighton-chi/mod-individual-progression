@@ -1,16 +1,12 @@
-
-
 #include "CreatureAI.h"
 #include "Player.h"
 #include "QuestDef.h"
 #include "ScriptMgr.h"
 
-// Extends the core's EasternKingdoms/zone_ironforge.cpp; it does not replace it. Only two things
-// could collide: the AddSC_ symbol, and the registered ScriptName string - neither does.
-//
+// Extends the core's EasternKingdoms/zone_ironforge.cpp; it does not replace it. 
+// Only two things could collide: the AddSC_ symbol, and the registered ScriptName string - neither does.
+
 // King Magni's two quest-completion lines. They cannot be SmartAI: his ScriptName owns the AI slot,
-// and CreatureAISelector::SelectAI tests it before AIName. Reasoning in
-// modules/mod-classic-zones/docs/mangos-to-ac-mapping.md section 4a.
 enum KingMagniQuestScenes
 {
     NPC_KING_MAGNI_BRONZEBEARD      = 2784,
@@ -24,7 +20,6 @@ enum KingMagniQuestScenes
 
 // One spawn world-wide, and the player has to be standing at him to hand in.
 constexpr float MAGNI_SEARCH_RANGE = 30.0f;
-
 constexpr Milliseconds BROKERING_OF_PEACE_YELL_DELAY = 1s;
 
 class ipp_zone_ironforge_playerscript : public PlayerScript
@@ -52,9 +47,8 @@ public:
             return;
         }
 
-        // A second later he yells the player's praise to the hall. The exclamation gesture is on
-        // the creature_text row's Emote column, not here. The player is passed as chat target so
-        // the yell's $N resolves; a delayed Talk stores only the guid and re-resolves on firing.
+        // A second later he yells the player's praise to the hall. The exclamation gesture is on the creature_text row's Emote column, not here. 
+		// The player is passed as chat target so the yell's $N resolves; a delayed Talk stores only the guid and re-resolves on firing.
         magni->AI()->Talk(SAY_THE_BROKERING_OF_PEACE, player, BROKERING_OF_PEACE_YELL_DELAY);
     }
 };
