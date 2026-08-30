@@ -1,4 +1,4 @@
-SET @OGUID    := 660000;
+SET @OGUID    := 650000;
 
 DELETE FROM `gameobject` WHERE `id` IN (176146, 176147, 176148);
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES 
