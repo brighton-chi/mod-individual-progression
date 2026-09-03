@@ -214,6 +214,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1432502, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Script9 - Captain Kromcrush - Cast Enrage'),
 (1432502, 9, 7, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 67, 1, 2500, 2500, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Script9 - Captain Kromcrush - Create Timed Event');
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND `SourceEntry` = 14325;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(22, 12, 14325, 0, 0, 13, 1, 3, 3, 0, 0, 0, 0, '', 'Run action if GetData(3) == 3'),
+(22, 13, 14325, 0, 0, 13, 1, 3, 3, 0, 0, 0, 0, '', 'Run action if GetData(3) == 3');
+
 -- fix 3 Gordok Mastiff patrols
 DELETE FROM `creature` WHERE `guid` IN 
 (248093, 248094, 248095, 248096, 248097, 248098, 248099, 248100, 248101, 248106, 248107, 248108, 248131, 248132, 

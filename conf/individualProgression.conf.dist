@@ -175,6 +175,7 @@ IndividualProgression.FishingFix = 1
 #        Description: In WotLK you no longer had to tame beasts to learn new pet spells and ranks. 
 #                     New pet spells and ranks were now automatically learned on the respective levels.
 #                     Enable this option to restore Vanilla/TBC behavior so that specific beasts need to be tamed to learn new pet spells and ranks.
+#                     Once the player gets to WotLK, hunter pets learn their spells automatically again.
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
@@ -248,7 +249,7 @@ IndividualProgression.DisableRDF = 0
 #                     Set to 1 to also show the exact turn-in count (useful while testing).
 #        Default:     0
 #
-#        Description: The AC default setting is 50 yards. Enabling this will increase the range to 80 yards.
+#        Description: Max enemy sight. The AC default setting is 50 yards. Enabling this will increase the range to 80 yards.
 #                     The reason behind this are the tower and bunker archers in Alterac Valley.
 #                     This does NOT effect aggro range.
 #        Default:     1 - Enabled
@@ -418,6 +419,7 @@ IndividualProgression.AllowEarlyScourgeBosses = 0
 # IndividualProgression.TBC.ArenaSeason
 #
 #        Description: Current TBC arena season id
+#                     This effects the available arena vendors.
 #        Default:     1
 #                     1-4
 #
@@ -426,6 +428,7 @@ IndividualProgression.TBC.ArenaSeason = 1
 # IndividualProgression.WotLK.ArenaSeason
 #
 #        Description: Current WotLK arena season id
+#                     This effects the available arena vendors.
 #        Default:     5
 #                     5-8
 #
@@ -480,6 +483,8 @@ IndividualProgression.BotAccountsEarnPvPTitles = 0
 # IndividualProgression.BotAccountsMaxLevel
 #
 #        Description: Set the maximum level for bot accounts
+#                     RNDbots will stop earning XP at this level.
+#                     not the same as `AiPlayerbot.RandomBotMaxLevel`. that setting effects bot creation only.
 #
 #        Default:     80
 #
