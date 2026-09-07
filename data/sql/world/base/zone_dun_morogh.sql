@@ -61,8 +61,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1211, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 14000, 17000, 0, 0, 11, 6951, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Leper Gnome - In Combat - Cast Decayed Strength'),
 (1211, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Leper Gnome - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(1234, 0, 0, 1, 62, 0, 100, 512, 411, 4, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hogral Bakkan - On Gossip Select - Close gossip'),
-(1234, 0, 1, 0, 61, 0, 100, 512, 410, 0, 0, 0, 0, 0, 11, 21100, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Hogral Bakkan - Linked with Previous Event - Cast Conjure Elegant Letter'),
+(1234, 0, 0, 1, 62, 0, 100, 512, 410, 4, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hogral Bakkan - On Gossip Select - Close gossip'),
+(1234, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 21100, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Hogral Bakkan - Linked with Previous Event - Cast Conjure Elegant Letter'),
 --
 (1260, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 465, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Great Father Arctikus - Out of Combat - Cast Devotion Aura (No Repeat)'),
 (1260, 0, 1, 0, 4, 0, 80, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Great Father Arctikus - On Aggro - Say Line 0'),
