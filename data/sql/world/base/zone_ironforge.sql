@@ -389,12 +389,6 @@ DELETE FROM `creature_text` WHERE `CreatureID` = 2784 AND `GroupID` = 1;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (2784, 1, 0, 'Let it be known that $n - Alliance $C - has earned the undying respect of Ironforge and the Alliance as a whole.  $GHe : She; has engaged in great diplomacy with Timbermaw Hold and performed valiant actions for them on our behalf.   $GHe : She; has gone above and beyond the call of duty.  Three cheers for $n - a true hero of the Alliance!', 14, 0, 100, 5, 0, 0, 11308, 0, 'King Magni Bronzebeard - The Brokering of Peace');
 
-
-
-
-
-
-
 -- John Turner (6175) - ambient route - stops four times a lap and begs one of four charity lines
 DELETE FROM `creature_text` WHERE `CreatureID` = 6175;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
@@ -410,11 +404,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
-(6175, 0, 0, 0, 108, 0, 100, 0, 1, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 1 Reached - Say Random Charity Line'),
-(6175, 0, 1, 0, 108, 0, 100, 0, 3, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 3 Reached - Say Random Charity Line'),
-(6175, 0, 2, 0, 108, 0, 100, 0, 5, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 5 Reached - Say Random Charity Line'),
-(6175, 0, 3, 0, 108, 0, 100, 0, 6, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 6 Reached - Say Random Charity Line'),
-(6175, 0, 4, 0, 108, 0, 100, 0, 7, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 7 Reached - Say Random Charity Line');
+(6175, 0, 0, 0, 108, 0, 100, 1, 1, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 1 Reached - Say Random Charity Line'),
+(6175, 0, 1, 0, 108, 0, 100, 1, 3, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 3 Reached - Say Random Charity Line'),
+(6175, 0, 2, 0, 108, 0, 100, 1, 5, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 5 Reached - Say Random Charity Line'),
+(6175, 0, 3, 0, 108, 0, 100, 1, 6, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 6 Reached - Say Random Charity Line'),
+(6175, 0, 4, 0, 108, 0, 100, 1, 7, 1080, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'John Turner - On Waypoint 7 Reached - Say Random Charity Line');
 
 UPDATE `waypoint_data` SET `delay` = 4000 WHERE `id` = 1080 AND `point` IN (1, 3, 5, 7);
 UPDATE `waypoint_data` SET `delay` = 10 WHERE `id` = 1080 AND `point` = 6;
