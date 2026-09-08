@@ -380,3 +380,54 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (723, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Mosh Ogg Butcher'),
 (723, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Mosh Ogg Butcher'),
 (723, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Mosh Ogg Butcher');
+
+-- Script end event for quest Headhunting (ported from CMaNGOS TBC)
+UPDATE `creature_template` SET `AIName` = "SmartAI" WHERE `entry` = 2497;
+
+DELETE FROM `smart_scripts` WHERE `entryorguid` = 2497 AND `source_type` = 0;
+DELETE FROM `smart_scripts` WHERE `entryorguid` = 249700 AND `source_type` = 9;
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
+`event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(2497, 0, 0, 0, 20, 0, 100, 0, 582, 0, 0, 0, 0, 0, 80, 249700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     "Nimboya - On Quest 'Headhunting' Turned In - Run Script 249700"),
+--
+(249700, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           "Script9 - Nimboya - Set Active"),
+(249700, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           "Script9 - Nimboya - Remove NpcFlags Gossip + Questgiver"),
+(249700, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0.64577,     "Script9 - Nimboya - Change Orientation"),
+(249700, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            "Script9 - Nimboya - Say Text 0"),
+(249700, 9, 4, 0, 0, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 241, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    "Script9 - Nimboya - Spawn GameObject Group 0"),
+(249700, 9, 5, 0, 0, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 241, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    "Script9 - Nimboya - Spawn GameObject Group 1"),
+(249700, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            "Script9 - Nimboya - Say Text 1"),
+(249700, 9, 7, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 241, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    "Script9 - Nimboya - Spawn GameObject Group 2"),
+(249700, 9, 8, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           "Script9 - Nimboya - Face Player"),
+(249700, 9, 9, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            "Script9 - Nimboya - Say Text 2"),
+(249700, 9, 10, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          "Script9 - Nimboya - Add NpcFlags Gossip + Questgiver"),
+(249700, 9, 11, 0, 0, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    "Script9 - Nimboya - Reset Orientation"),
+(249700, 9, 12, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          "Script9 - Nimboya - Set Inactive");
+
+DELETE FROM `gameobject_summon_groups` WHERE `summonerId` = 2497;
+INSERT INTO `gameobject_summon_groups` (`summonerId`, `summonerType`, `groupId`, `entry`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `respawnTime`, `Comment`) VALUES
+--
+(2497, 0, 0, 2371, -12345.9, 170.536, 3.004, 4.433, 0, 0, -0.8, 0.6, 60,      "Headhunting - Headhunter Skull"),
+(2497, 0, 0, 2371, -12346.5, 171.066, 3.004, 3.194, 0, 0, -1, 0.026, 60,      "Headhunting - Headhunter Skull"),
+(2497, 0, 0, 2371, -12346.2, 171.264, 3.004, 3.072, 0, 0, 1, 0.0349, 60,      "Headhunting - Headhunter Skull"),
+(2497, 0, 0, 2371, -12346.2, 170.538, 3.004, 1.78, 0, 0, 0.777, 0.62932, 60,  "Headhunting - Headhunter Skull"),
+(2497, 0, 0, 2371, -12346.2, 170.538, 3.004, 1.78, 0, 0, 0.777, 0.62932, 60,  "Headhunting - Headhunter Skull"),
+(2497, 0, 0, 2371, -12346.1, 170.729, 3.004, 0, 0, 0, 0, 1, 60,               "Headhunting - Headhunter Skull"),
+(2497, 0, 0, 2371, -12345.8, 169.787, 2.978, 0, 0, 0, 0, 1, 60,               "Headhunting - Headhunter Skull"),
+--
+(2497, 0, 1, 2371, -12346.0, 170.976, 3.004, 5.585, 0, 0, -0.34200, 0.94, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 1, 2371, -12346.1, 170.280, 3.004, 2.077, 0, 0, 0.861629, 1, 60,    "Headhunting - Headhunter Skull"),
+(2497, 0, 1, 2371, -12346.4, 170.878, 3.004, 0.087, 0, 0, 0.043619, 1, 60,    "Headhunting - Headhunter Skull"),
+(2497, 0, 1, 2371, -12347.2, 170.736, 3.022, 5.812, 0, 0, -0.23344, 0.97, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 1, 2371, -12345.8, 170.661, 3.079, 0.942, 0, 0, 0.453990, 0.89, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 1, 2371, -12346.6, 170.625, 3.215, 4.974, 0, 0, -0.60876, 0.79, 60, "Headhunting - Headhunter Skull"),
+--
+(2497, 0, 2, 2371, -12346.8, 169.937, 3.017, 3.910, 0, 0, -0.927, 0.3746, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 2, 2371, -12346.1, 171.328, 3.215, 2.164, 0, 0, 0.883, 0.46947, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 2, 2371, -12346.0, 171.047, 3.193, 0.122, 0, 0, 0.061, 0.99813, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 2, 2371, -12345.7, 170.559, 3.215, 3.019, 0, 0, 0.998, 0.06105, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 2, 2371, -12346.2, 171.381, 3.533, 3.840, 0, 0, -0.94, 0.34202, 60, "Headhunting - Headhunter Skull"),
+(2497, 0, 2, 2371, -12346.5, 170.109, 3.005, 2.251, 0, 0, 0.900, 0.43051, 60, "Headhunting - Headhunter Skull");
