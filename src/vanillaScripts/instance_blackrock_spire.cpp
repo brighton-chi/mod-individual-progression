@@ -38,6 +38,7 @@ enum EventIds
     EVENT_DARGONSPIRE_ROOM_STORE    = 1,
     EVENT_DARGONSPIRE_ROOM_CHECK    = 2,
     EVENT_SOLAKAR_WAVE              = 3,
+    EVENT_SOLAKAR_SAY_SUMMON        = 4,
 
     // Progression module
     EVENT_UBRS_DOOR_OPEN_STAGE_1    = 9,
@@ -59,7 +60,14 @@ enum Texts
 {
     SAY_NEFARIUS_REND_WIPE      = 11,
     SAY_SOLAKAR_FIRST_HATCHER   = 0,
-    SAY_SCARSHIELD_INF_WHISPER  = 0
+    SAY_SCARSHIELD_INF_WHISPER  = 0,
+    SAY_SUMMON                  = 0,
+};
+
+enum Spells
+{
+    SPELL_WAR_STOMP = 16727,
+    SPELL_HATCH_EGG = 15746
 };
 
 MinionData const minionData[] =
@@ -845,8 +853,93 @@ public:
     }
 };
 
+class boss_solakar_flamewreath_50_59_B : public CreatureScript
+{
+public:
+    boss_solakar_flamewreath_50_59_B() : CreatureScript("boss_solakar_flamewreath") {}
+
+    struct boss_solakar_flamewreath : public BossAI
+    {
+        boss_solakar_flamewreath(Creature* creature) : BossAI(creature, DATA_SOLAKAR_FLAMEWREATH) {}
+
+        uint32 resetTimer;
+
+        void Reset() override
+        {
+            _Reset();
+            resetTimer = 10000;
+        }
+
+        void InitializeAI() override
+        {
+            BossAI::InitializeAI();
+            DoZoneInCombat(nullptr, 100.0f);
+        }
+
+        void JustEngagedWith(Unit* /*who*/) override
+        {
+            _JustEngagedWith();
+
+            events.ScheduleEvent(EVENT_SOLAKAR_SAY_SUMMON, 1s);
+            events.ScheduleEvent(SPELL_WAR_STOMP, 17s, 20s);
+            resetTimer = 0;
+        }
+
+        void JustDied(Unit* /*killer*/) override
+        {
+            _JustDied();
+            instance->SetData(DATA_SOLAKAR_FLAMEWREATH, DONE);
+        }
+
+        void UpdateAI(uint32 diff) override
+        {
+            if (!UpdateVictim())
+            {
+                if (resetTimer <= diff)
+                {
+                    instance->SetData(DATA_SOLAKAR_FLAMEWREATH, FAIL);
+                    return;
+                }
+                resetTimer -= diff;
+                return;
+            }
+
+            resetTimer = 10000;
+            events.Update(diff);
+
+            if (me->HasUnitState(UNIT_STATE_CASTING))
+                return;
+
+            while (uint32 eventId = events.ExecuteEvent())
+            {
+                switch (eventId)
+                {
+                case SPELL_WAR_STOMP:
+                    DoCastVictim(SPELL_WAR_STOMP);
+                    events.ScheduleEvent(SPELL_WAR_STOMP, 17s, 20s);
+                    break;
+                case EVENT_SOLAKAR_SAY_SUMMON:
+                    Talk(SAY_SUMMON);
+                    break;
+
+                default:
+                    break;
+                }
+            }
+
+            DoMeleeAttackIfReady();
+        }
+    };
+
+CreatureAI* GetAI(Creature* creature) const override
+{
+    return new boss_solakar_flamewreath(creature);
+}
+};
+
 void AddSC_instance_blackrock_spire_50_59_B()
 {
     new instance_blackrock_spire_50_59_B();
     new at_dragonspire_hall_50_59_B();
+    new boss_solakar_flamewreath_50_59_B();
 }
