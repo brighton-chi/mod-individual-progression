@@ -88,6 +88,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- change creature visible level to ?? (CREATURE_TYPE_FLAG_BOSS_MOB)
 UPDATE `creature_template` SET `type_flags` = type_flags|4 WHERE `entry` IN (9816, 10363, 10429, 10430);
 
+DELETE FROM `creature_text` WHERE `CreatureID` = 10264;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(10264, 0, 0, 'I am here! Now, puny little worms, you will pay for your intrusion!', 14, 0, 100, 0, 0, 0, 5547, 0, 'Solakar Flamewreath');
+
 
 /* ---- Lower Blackrock Spire ---- */
 
