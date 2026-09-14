@@ -104,14 +104,19 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 -- Shaman
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 14 AND `SpellId` IN (2645, 25357, 25361, 29228, 57994);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
-(14,2645,2200,0,0,0,0,0,20,0), -- Ghost Wolf, level 16 -> 20
+(14,2645,2200,0,0,0,0,0,20,0),          -- Ghost Wolf, level 16 -> 20
 -- (14,24398,38000,0,0,52138,0,0,62,0), -- optional, Water Shield (Rank 7), level 62 -> 71
-(14,25357,6500,0,0,10396,0,0,61,0),  -- book, Healing Wave (Rank 10), level 60 -> 61
-(14,25361,34000,0,0,10442,0,0,61,0), -- book, Strength of Earth Totem (Rank 5), level 60 -> 61
-(14,29228,65000,0,0,10448,0,0,61,0), -- book, Flame Shock (Rank 6), level 60 -> 61
+(14,25357,6500,0,0,10396,0,0,61,0),     -- book, Healing Wave (Rank 10), level 60 -> 61
+(14,25361,34000,0,0,10442,0,0,61,0),    -- book, Strength of Earth Totem (Rank 5), level 60 -> 61
+(14,29228,65000,0,0,10448,0,0,61,0),    -- book, Flame Shock (Rank 6), level 60 -> 61
 -- (14,32593,1700,0,0,974,0,0,60,0),    -- talent, Earth Shield (Rank 2), level 60 -> 61
 -- (14,33736,79000,0,0,24398,0,0,69,0), -- optional, Water Shield (Rank 8), level 69 -> 71
 -- (14,36936,7000,0,0,0,0,0,30,0),      -- optional, Totemic Recall, level 30 -> 61
+-- (14,51730,7000,0,0,0,0,0,30,0),      -- optional, Earthliving Weapon (Rank 5), Level 30 -> 71
+-- (14,51988,12000,0,0,51730,0,0,40,0), -- optional, Earthliving Weapon (Rank 5), Level 40 -> 71
+-- (14,51991,24000,0,0,51988,0,0,50,0), -- optional, Earthliving Weapon (Rank 5), Level 50 -> 71
+-- (14,51992,34000,0,0,51991,0,0,60,0), -- optional, Earthliving Weapon (Rank 5), Level 60 -> 71
+-- (14,51993,71000,0,0,51992,0,0,70,0), -- optional, Earthliving Weapon (Rank 5), Level 70 -> 71
 -- (14,52127,2200,0,0,0,0,0,20,0),      -- optional, Water Shield (Rank 1), level 20 -> 71
 -- (14,52129,6000,0,0,52127,0,0,28,0),  -- optional, Water Shield (Rank 2), level 28 -> 71
 -- (14,52131,9000,0,0,52129,0,0,34,0),  -- optional, Water Shield (Rank 3), level 34 -> 71
