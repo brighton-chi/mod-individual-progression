@@ -55,6 +55,14 @@ DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 2077
 -- change Shattered Sun Marksmen into Warriors. Marksmen refuse to use waypoints to run towards the Quel'Danas portal
 UPDATE `creature` SET `id` = 25115 WHERE `guid` IN (165106, 165107, 165108, 165109);
 
+-- Wind Trader Zhareem(24369) & Nether-Stalker Mah'duun(24370): remove Magisters' Terrace dailies, so players don't get them before they can go there.
+-- (by the time players get to MT they don't care about daily rewards anymore anyways.)
+DELETE FROM `creature_queststarter` WHERE `id` = 24369 AND `quest` = 11499;
+DELETE FROM `creature_questender`   WHERE `id` = 24369 AND `quest` = 11499;
+DELETE FROM `creature_queststarter` WHERE `id` = 24370 AND `quest` = 11500;
+DELETE FROM `creature_questender`   WHERE `id` = 24370 AND `quest` = 11500;
+DELETE FROM `pool_quest` WHERE `pool_entry` = 356 AND `entry` = 11499;
+DELETE FROM `pool_quest` WHERE `pool_entry` = 357 AND `entry` = 11500;
 
 /* Scryer's Tier */
 SET @CGUID    := 672000;
