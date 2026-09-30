@@ -9,6 +9,9 @@
 UPDATE `quest_template` SET `RewardFactionOverride1` = 800000, `RewardFactionOverride2` = 0, `RewardFactionOverride3` = 0, `RewardFactionOverride4` = 0, `RewardFactionOverride5` = 0 WHERE `ID` = 8301;
 UPDATE `quest_template` SET `RewardFactionOverride1` = 800000, `RewardFactionOverride2` = 0, `RewardFactionOverride3` = 0, `RewardFactionOverride4` = 0, `RewardFactionOverride5` = 0 WHERE `ID` = 8302;
 
+-- Set the amount of Commendation Signets required to complete the War Effort. (default = 1000)
+UPDATE `quest_template` SET `RequiredItemCount1` = 1000 WHERE `ID` IN (108850, 108855);
+
 -- Revert drop rate for Nightmare_corruption to nerfed WotLK drop rate
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21146;
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21147;
