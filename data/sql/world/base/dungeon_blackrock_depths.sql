@@ -47,7 +47,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (8895, 0, 6, 0, 108, 0, 100, 0, 17, 4778600, 0, 0, 0, 0, 230, 1, 2, 200, 0, 0, 0, 206, 0, 0, 1, 0, 0, 0, 0, 0,         'Anvilrage Officer - On Point 17 of Path 4778600 Reached - Follow in Fan Formation'),
 (8895, 0, 7, 0, 108, 0, 100, 0, 32, 4778600, 0, 0, 0, 0, 230, 1, 5, 200, 0, 0, 0, 206, 0, 0, 1, 0, 0, 0, 0, 0,         'Anvilrage Officer - On Point 32 of Path 4778600 Reached - Follow in Line Formation'),
 (8895, 0, 8, 0, 108, 0, 100, 0, 45, 4778600, 0, 0, 0, 0, 230, 1, 1, 200, 0, 0, 0, 206, 0, 0, 1, 0, 0, 0, 0, 0,         'Anvilrage Officer - On Point 45 of Path 4778600 Reached - Follow in Diamond Formation'),
-(8895, 0, 9, 0, 108, 0, 100, 0, 61, 4778600, 0, 0, 0, 0, 230, 1, 5, 200, 0, 0, 0, 206, 0, 0, 1, 0, 0, 0, 0, 0,         'Anvilrage Officer - On Point 61 of Path 4778600 Reached - Follow in Line Formation');
+(8895, 0, 9, 0, 108, 0, 100, 0, 61, 4778600, 0, 0, 0, 0, 230, 1, 5, 200, 0, 0, 0, 206, 0, 0, 1, 0, 0, 0, 0, 0,         'Anvilrage Officer - On Point 61 of Path 4778600 Reached - Follow in Line Formation'),
 --
 (8896, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Shadowforge Peasant - Outside 30 Range - Start Combat Movement'),
 (8896, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Shadowforge Peasant - Within 5-30 Range - Stop Combat Movement'),
