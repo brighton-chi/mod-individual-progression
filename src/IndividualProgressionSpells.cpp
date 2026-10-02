@@ -1393,9 +1393,14 @@ public:
             heal *= sIndividualProgression->tbcHealingAdjustment;
     }
 
-    void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
+    void ModifySpellDamageTaken(Unit* target, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
     {
         if (!sIndividualProgression->enabled || !attacker || !damage)
+            return;
+
+        // Do not apply reductions to abilities that damage the caster or party members, which includes many significant
+        // TBC raid boss spells (e.g., Aran's Flame Wreath, Gruul's Shatter, Illidan's Flame Burst) and MC'd players.
+        if (attacker->IsFriendlyTo(target))
             return;
 
         // 22482 - Blade Flurry extra attack (Rogue); 12723 - Sweeping Strikes extra attack (Warrior)
@@ -1443,9 +1448,14 @@ public:
             damage *= sIndividualProgression->tbcPowerAdjustment;
     }
 
-    void ModifyPeriodicDamageAurasTick(Unit* /*target*/, Unit* attacker, uint32& damage, SpellInfo const* spellInfo) override
+    void ModifyPeriodicDamageAurasTick(Unit* target, Unit* attacker, uint32& damage, SpellInfo const* spellInfo) override
     {
         if (!sIndividualProgression->enabled || !attacker || !damage || !spellInfo)
+            return;
+
+        // Do not apply reductions to abilities that damage the caster or party members, which includes many significant
+        // TBC raid boss spells (e.g., Aran's Flame Wreath, Gruul's Shatter, Illidan's Flame Burst) and MC'd players.
+        if (attacker->IsFriendlyTo(target))
             return;
 
         // Do not apply reductions to healing auras - these are already modified in the ModifyHeal hook
