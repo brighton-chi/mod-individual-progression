@@ -469,7 +469,7 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (90658, 90661, 6, 270, 515, 0, 0),
 (90658, 90662, 3, 270, 515, 0, 0);
 
-DELETE FROM `creature_addon` WHERE `guid` IN (45857, 47781, 90658);
+DELETE FROM `creature_addon` WHERE `guid` IN (45857, 45875, 45876, 45877, 45878, 45879, 47781, 47786, 47799, 47800, 47801, 47802, 47803, 90658);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 --
 (45857, 458570, 0, 0, 1, 0, 0, '13864'),
