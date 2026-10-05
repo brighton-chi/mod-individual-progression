@@ -1,11 +1,13 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN
-(15547, 15548, 15551, 16173, 16174, 16176, 16177, 16389, 16406, 16408, 16409, 16410, 16411, 16412, 16415, 16424, 16425, 16459, 16460, 16468,
- 16470, 16471, 16472, 16473, 16481, 16482, 16485, 16488, 16489, 16492, 16504, 16525, 16529, 16539, 16540, 16544, 16545, 16595, 16596);
+(15547, 15548, 15551, 16171, 16173, 16174, 16176, 16177, 16389, 16406, 16407, 16408, 16409, 16410, 16411, 16412, 16415, 16424, 16425, 16459, 16460, 16468,
+ 16470, 16471, 16472, 16473, 16481, 16482, 16485, 16488, 16489, 16492, 16504, 16525, 16526, 16529, 16539, 16540, 16544, 16545, 16595, 16596, 17267);
  
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN
-(15547, 15548, 15551, 16173, 16174, 16176, 16177, 16389, 16406, 16408, 16409, 16410, 16411, 16412, 16415, 16424, 16425, 16459, 16460, 16468,
- 16470, 16471, 16472, 16473, 16481, 16482, 16485, 16488, 16489, 16492, 16504, 16525, 16529, 16539, 16540, 16544, 16545, 16595, 16596);
+(15547, 15548, 15551, 16171, 16173, 16174, 16176, 16177, 16389, 16406, 16407, 16408, 16409, 16410, 16411, 16412, 16415, 16424, 16425, 16459, 16460, 16468,
+ 16470, 16471, 16472, 16473, 16481, 16482, 16485, 16488, 16489, 16492, 16504, 16525, 16526, 16529, 16539, 16540, 16544, 16545, 16595, 16596, 17267);
+
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1652500, 1652502, 1652600, 1652602); -- 00_cleanup
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
@@ -14,19 +16,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 --
 (15547, 0, 0, 0, 0, 0, 100, 0, 1000, 10000, 12000, 25000, 0, 0, 11, 29320, 0, 0, 0, 0, 0, 28, 40, 0, 0, 0, 0, 0, 0, 0, 'Spectral Charger - In Combat - Cast Charge'),
 (15547, 0, 1, 0, 31, 0, 100, 0, 29320, 0, 0, 0, 0, 0, 11, 29321, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spectral Charger - On Target Spellhit Charge - Cast Fear'),
-(15547, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 19817, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Spectral Charger - On Respawn - Cast Double Attack'), -- new! check aura!
+(15547, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 19817, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Spectral Charger - On Respawn - Cast Double Attack'), -- new!
 (15548, 0, 0, 0, 0, 0, 100, 0, 6000, 18000, 10000, 20000, 0, 0, 11, 29577, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Spectral Stallion - In Combat - Cast Hoof Strike'),
 (15548, 0, 1, 0, 0, 0, 100, 0, 6000, 18000, 6000, 18000, 0, 0, 11, 29323, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Spectral Stallion - In Combat - Cast Absorb Vitality'),
---
 (15551, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Spectral Stable Hand - On Aggro - Say Line 0'),
 (15551, 0, 1, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Spectral Stable Hand - On Death - Say Line 1'),
 (15551, 0, 2, 0, 1, 0, 60, 0, 0, 70000, 80000, 190000, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Spectral Stable Hand - Out of Combat - Say Line 2'),
 (15551, 0, 3, 0, 0, 0, 100, 0, 2000, 11000, 12000, 21000, 0, 0, 11, 18812, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Spectral Stable Hand - In Combat - Cast Knockdown'),
 (15551, 0, 4, 0, 0, 0, 100, 0, 2000, 15000, 17000, 28000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Spectral Stable Hand - In Combat - Cast Pierce Armor'),
-(15551, 0, 5, 0, 74, 0, 100, 0, 0, 0, 14000, 22000, 70, 40, 11, 29339, 0, 0, 0, 0, 0, 9, 15547, 0, 40, 1, 0, 0, 0, 0,  'Spectral Stable Hand - Spectral Charger below 70% hp - Cast Healing Touch'),
-(15551, 0, 6, 0, 74, 0, 100, 0, 0, 0, 14000, 22000, 70, 40, 11, 29339, 0, 0, 0, 0, 0, 9, 15548, 0, 40, 1, 0, 0, 0, 0,  'Spectral Stable Hand - Spectral Stallion below 70% hp - Cast Healing Touch'),
+(15551, 0, 5, 0, 74, 0, 100, 0, 0, 0, 14000, 22000, 70, 40, 11, 29339, 0, 0, 0, 0, 0, 9, 15548, 0, 40, 1, 0, 0, 0, 0,  'Spectral Stable Hand - Spectral Stallion below 70% hp - Cast Healing Touch'),
 (15551, 0, 7, 0, 0, 0, 100, 0, 0, 0, 21000, 38000, 0, 0, 11, 29340, 0, 0, 0, 0, 0, 9, 15547, 0, 40, 1, 0, 0, 0, 0,     'Spectral Stable Hand - In Combat - Cast Whip Rage'),
---
 (16171, 0, 0, 0, 0, 0, 100, 0, 9000, 14000, 14000, 20000, 0, 0, 11, 29292, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Coldmist Widow - In Combat - Cast Frost Mist'),
 (16171, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 9000, 22000, 0, 0, 11, 29293, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Coldmist Widow - In Combat - Cast Poison Bolt Volley'),
 (16171, 0, 2, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 100, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Coldmist Widow - On Death - Set Instance Data 100 to 1'),
@@ -59,7 +58,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (16409, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Phantom Guest - On Aggro - Say Line 0'),
 (16409, 0, 1, 0, 6, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Phantom Guest - On Death - Say Line 1'),
 (16409, 0, 3, 4, 37, 0, 100, 512, 0, 0, 0, 0, 0, 0, 211, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Phantom Guest - On AI Init - No Event Phase Reset'),
-(16409, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 31, 1, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Phantom Guest - On AI Init - Set Random Phase Range'),
+(16409, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 31, 1, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Phantom Guest - On AI Init - Set Random Phase Range'),
 (16409, 0, 5, 0, 0, 1, 100, 1, 0, 0, 0, 0, 0, 0, 11, 29521, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Phantom Guest - In Combat - Cast Dance Vibe (Hunter)'),
 (16409, 0, 6, 0, 0, 1, 100, 0, 0, 1000, 2000, 4000, 0, 0, 11, 29582, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Phantom Guest - In Combat - Cast Throw (Hunter)'),
 (16409, 0, 7, 0, 0, 1, 100, 0, 7000, 11000, 7000, 9000, 0, 0, 11, 29583, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Phantom Guest - In Combat - Cast Impale (Hunter)'),
@@ -147,19 +146,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (16482, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Trapped Soul - On Aggro - Say Line 0'),
 (16482, 0, 1, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Trapped Soul - On Death - Say Line 1'),
 (16482, 0, 2, 0, 0, 0, 100, 0, 1000, 3000, 60000, 60000, 0, 0, 11, 29718, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Trapped Soul - In Combat - Cast Elemental Armor'),
-(16482, 0, 3, 0, 16, 0, 100, 0, 0, 0, 10000, 13000, 0, 5, 11, 29717, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Trapped Soul - Within 0-5 Range - Cast Cone of Cold'), -- test!
+(16482, 0, 3, 0, 106, 0, 100, 0, 0, 0, 10000, 13000, 0, 5, 11, 29717, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Trapped Soul - Within 0-5 Range - Cast Cone of Cold'),
 (16485, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Arcane Watchman - On Aggro - Say Line 0'),
 (16485, 0, 1, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Arcane Watchman - On Death - Say Line 1'),
 (16485, 0, 2, 0, 5, 0, 50, 0, 5000, 5000, 1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Arcane Watchman - On Kill - Say Line 2'),
 (16485, 0, 3, 0, 9, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 29765, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Arcane Watchman - Within 0-5 Range - Cast Crystal Strike'),
 (16485, 0, 4, 0, 0, 0, 100, 0, 11000, 15000, 13000, 17000, 0, 0, 11, 29768, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Arcane Watchman - In Combat - Cast Overload'),
-(16485, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 18950, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Arcane Watchman - On Respawn - Cast Stealth'), -- check aura!
+--
 (16488, 0, 0, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 42, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Arcane Anomaly - On Reset - Set HP Invincibility ON'),
 (16488, 0, 1, 2, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 29880, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Arcane Anomaly - On Aggro - Cast Mana Shield'),
 (16488, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Arcane Anomaly - On Aggro - Set HP Invincibility OFF'),
-(16488, 0, 3, 0, 9, 0, 100, 0, 0, 0, 6000, 10000, 0, 40, 11, 29885, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Arcane Anomaly - In Combat - Cast Arcane Volley'), -- test!
+(16488, 0, 3, 0, 9, 0, 100, 0, 0, 0, 6000, 10000, 0, 40, 11, 29885, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Arcane Anomaly - In Combat - Cast Arcane Volley'),
 (16488, 0, 4, 0, 0, 0, 100, 0, 18000, 30000, 30000, 45000, 0, 0, 11, 29883, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Arcane Anomaly - In Combat - Cast Blink'),
-(16488, 0, 5, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 29882, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Arcane Anomaly - On Death - Cast Loose Mana'), -- test!
+(16488, 0, 5, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 29882, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Arcane Anomaly - On Death - Cast Loose Mana'),
+--
 (16489, 0, 0, 0, 106, 0, 100, 0, 0, 0, 30000, 45000, 0, 15, 11, 29900, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Chaotic Sentience - Within 0-15 Range - Cast Unstable Magic'),
 (16492, 0, 0, 0, 0, 0, 100, 0, 0, 3000, 9000, 13000, 0, 0, 11, 29881, 256, 0, 0, 0, 0, 5, 20, 0, 1, 0, 0, 0, 0, 0,     'Syphoner - Within 0-20 Range - Cast Drain Mana'),
 (16504, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Arcane Protector - On Aggro - Say Line 0'),
@@ -169,15 +169,24 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (16504, 0, 4, 0, 0, 0, 100, 512, 4000, 7000, 20500, 20500, 0, 0, 88, 1650400, 1650402, 0, 0, 0, 0, 1, 0,0,0,0,0,0,0,0, 'Arcane Protector - In Combat - Run Script Range'),
 (16504, 0, 5, 0, 0, 0, 100, 0, 3000, 8000, 15000, 19000, 0, 0, 11, 29857, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Arcane Protector - In Combat - Cast Summon Astral Spark'),
 --
-(16525, 0, 0, 0, 1, 0, 100, 513, 0, 10000, 0, 0, 0, 0, 11, 29920, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Spell Shade - Out of Combat - Cast Phasing Invisibility'),
-(16525, 0, 1, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 28, 29920, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Spell Shade - On Aggro - Remove Phasing Invisibility'),
-(16525, 0, 2, 0, 0, 0, 100, 512, 0, 1000, 3000, 3000, 0, 0, 88, 1652500, 1652502, 0, 0, 0, 0, 1, 0,0,0,0,0,0,0,0,      'Spell Shade - In Combat - Run Script'), -- check out scripts! needs to be random cast frostbolt/fireball (29926/29927)
+(16525, 0, 0, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Spell Shade - On Aggro - Set Random Phase'),
+(16525, 0, 1, 2, 0, 1, 100, 0, 3000, 3000, 3000, 3000, 0, 0, 11, 29925, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Spell Shade - In Combat - Cast Fireball'),
+(16525, 0, 2, 0, 61, 1, 100, 0, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spell Shade - In Combat - Set Random Phase'),
+(16525, 0, 3, 4, 0, 2, 100, 0, 3000, 3000, 3000, 3000, 0, 0, 11, 29926, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Spell Shade - In Combat - Cast Frostbolt'),
+(16525, 0, 4, 0, 61, 2, 100, 0, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spell Shade - In Combat - Set Random Phase'),
+(16525, 0, 5, 6, 0, 4, 100, 0, 3000, 3000, 3000, 3000, 0, 0, 11, 29927, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Spell Shade - In Combat - Cast Shadow Bolt'),
+(16525, 0, 6, 0, 61, 4, 100, 0, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spell Shade - In Combat - Set Random Phase'),
 --
-(16526, 0, 0, 0, 0, 0, 100, 1, 180000, 180000, 0, 0, 0, 0, 11, 29922, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Sorcerous Shade - In Combat - Cast Fireball Volley'),
-(16526, 0, 1, 0, 0, 0, 100, 512, 0, 1000, 3000, 5000, 0, 0, 88, 1652600, 1652602, 0, 0, 0, 0, 1, 0,0,0,0,0,0,0,0,      'Sorcerous Shade - In Combat - Run Script'), -- check out scripts! needs to be 29922/29923/29924
+(16526, 0, 0, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Sorcerous Shade - On Aggro - Set Random Phase'),
+(16526, 0, 1, 2, 0, 1, 100, 0, 3000, 3000, 3000, 3000, 0, 0, 11, 29922, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Sorcerous Shade - In Combat - Cast Fireball Volley'),
+(16526, 0, 2, 0, 61, 1, 100, 0, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sorcerous Shade - In Combat - Set Random Phase'),
+(16526, 0, 3, 4, 0, 2, 100, 0, 3000, 3000, 3000, 3000, 0, 0, 11, 29923, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Sorcerous Shade - In Combat - Cast Frostbolt Volley'),
+(16526, 0, 4, 0, 61, 2, 100, 0, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sorcerous Shade - In Combat - Set Random Phase'),
+(16526, 0, 5, 6, 0, 4, 100, 0, 3000, 3000, 3000, 3000, 0, 0, 11, 29924, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Sorcerous Shade - In Combat - Cast Shadow Bolt Volley'),
+(16526, 0, 6, 0, 61, 4, 100, 0, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sorcerous Shade - In Combat - Set Random Phase'),
 --
 (16529, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 12000, 17000, 0, 0, 11, 29911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Magical Horror - In Combat - Cast Power Distortion'),
-(16529, 0, 1, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 37078, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Magical Horror - In Combat - Cast Arcane Volley'), -- test!
+(16529, 0, 1, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 37078, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Magical Horror - In Combat - Cast Arcane Volley'),
 --
 (16539, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4200, 0, 0, 11, 30180, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Homunculus - In Combat - Cast Firebolt'),
 (16540, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Shadow Pillager - On Aggro - Say Line 0'),
@@ -201,11 +210,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (16545, 0, 6, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 30007, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ethereal Spellfilcher - On Aggro - Cast Spatial Distortion'),
 --
 (16595, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 20000, 0, 5, 11, 29935, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Fleshbeast - Within 0-5 Range - Cast Gaping Maw'),
-(16595, 0, 1, 0, 0, 0, 100, 0, 10000, 20000, 10000, 20000, 0, 0, 11, 29939, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Fleshbeast - In Combat - Cast Infectious Poison'), -- test!
-(16595, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3417, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Fleshbeast - On Respawn - Cast Thrash'), -- check auras!
+(16595, 0, 1, 0, 0, 0, 100, 0, 10000, 20000, 10000, 20000, 0, 0, 11, 29939, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Fleshbeast - In Combat - Cast Infectious Poison'),
+(16595, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3417, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Fleshbeast - On Respawn - Cast Thrash'),
 (16596, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 18000, 0, 5, 11, 29935, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Greater Fleshbeast -  Within 0-5 Range - Cast Gaping Maw'),
 (16596, 0, 1, 0, 0, 0, 100, 0, 6000, 18000, 6000, 18000, 0, 0, 11, 29939, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Greater Fleshbeast - In Combat - Cast Infectious Poison'),
-(16596, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 18950, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Greater Fleshbeast - On Respawn - Cast Invisibility and Stealth Detection'), -- check auras!
+(16596, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 18950, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Greater Fleshbeast - On Respawn - Cast Invisibility and Stealth Detection'), -- new!
 (17267, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 30050, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Fiendish Imp - In Combat - Cast Firebolt');
 
 -- Spectral Stable Hand Healing Touch (29339) Requires Valid Target Nearby (not needed anymore? maybe look into this at some point)
