@@ -409,14 +409,21 @@ public:
         {
             int32 moneyRew = 0;
             int32 XPValue = 0;
+            uint8 playerLvl = player->GetLevel();
 
-            if ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == 60) || 
-                (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == 70))
+            if ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && playerLvl == 60) ||
+                (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && playerLvl == 70))
             {
-                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? player->GetLevel() : quest->GetQuestLevel());
+                uint32 questLvl = quest->GetQuestLevel() == -1 ? playerLvl : quest->GetQuestLevel();
+                uint32 originalFullXp = quest->XPValue(questLvl);
 
-                if (XPValue && sIndividualProgression->questXpFix && sIndividualProgression->questXpMap.count(quest->GetQuestId()))
+                if (sIndividualProgression->questXpFix && sIndividualProgression->questXpMap.count(quest->GetQuestId()))
                     XPValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
+                else
+                    XPValue = originalFullXp;
+
+                if (originalFullXp && playerLvl != questLvl)
+                    XPValue *= quest->XPValue(playerLvl) * 1.0 / originalFullXp;
             }
 
             moneyRew = (XPValue * (6 * COPPER)) * sWorld->getRate(RATE_REWARD_BONUS_MONEY);
