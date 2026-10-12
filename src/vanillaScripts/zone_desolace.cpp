@@ -1,5 +1,4 @@
-/*
- * This file is part of the AzerothCore Project. See AUTHORS file for Copyright information
+/* This file is part of the AzerothCore Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,7 +60,7 @@ enum Caravan
     NPC_NETHER                          = 4684,
 };
 
-constexpr Milliseconds TIME_SHOP_STOP   = 600s;
+constexpr Milliseconds TIME_SHOP_STOP   = 60s; // was 600
 constexpr Milliseconds TIME_HIRE_STOP   = 240s;
 constexpr Milliseconds TIME_SHORT_BREAK = 7s;
 
@@ -289,6 +288,25 @@ public:
             me->SetFaction(faction);
         }
 
+        // Helper: check if any follower is in combat and keep last combatant source (if any).
+        void FindFollowersInCombat(bool& anyInCombat, Creature*& lastVictimSrc)
+        {
+            anyInCombat = false;
+            lastVictimSrc = nullptr;
+            for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
+            {
+                if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
+                {
+                    if (summon->IsInCombat())
+                    {
+                        anyInCombat = true;
+                        if (Unit* v = summon->GetVictim())
+                            lastVictimSrc = summon;
+                    }
+                }
+            }
+        }
+
         using CreatureAI::WaypointReached;
         void WaypointReached(uint32 waypointId) override
         {
@@ -479,27 +497,19 @@ public:
             {
                 bool anyInCombat = false;
                 Creature* lastVictimSrc = nullptr;
-                for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
-                {
-                    if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
-                    {
-                        if (summon->IsInCombat())
-                        {
-                            anyInCombat = true;
-                            if (Unit* victim = summon->GetVictim())
-                                lastVictimSrc = summon;
-                        }
-                    }
-                }
+
+                FindFollowersInCombat(anyInCombat, lastVictimSrc);
 
                 if (!anyInCombat)
                 {
+                    // Followers finished combat: make them rejoin immediately and resume escort
                     SummonsFollow();
                     SetEscortPaused(false);
+                    events.CancelEvent(EVENT_CHECK_FOLLOWERS);
                 }
                 else
                 {
-                    // Assist followers
+                    // Assist followers and ensure escort is paused while followers are engaged.
                     if (lastVictimSrc && lastVictimSrc->GetVictim())
                     {
                         Unit* victim = lastVictimSrc->GetVictim();
@@ -510,6 +520,7 @@ public:
                         }
                     }
 
+                    SetEscortPaused(true);
                     events.ScheduleEvent(EVENT_CHECK_FOLLOWERS, 1s);
                 }
             }
@@ -524,18 +535,8 @@ public:
             {
                 bool anyInCombat = false;
                 Creature* lastVictimSrc = nullptr;
-                for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
-                {
-                    if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
-                    {
-                        if (summon->IsInCombat())
-                        {
-                            anyInCombat = true;
-                            if (Unit* v = summon->GetVictim())
-                                lastVictimSrc = summon;
-                        }
-                    }
-                }
+
+                FindFollowersInCombat(anyInCombat, lastVictimSrc);
 
                 if (anyInCombat)
                 {
@@ -582,21 +583,15 @@ public:
                 bool anyInCombat = false;
                 Creature* lastVictimSrc = nullptr;
 
-                for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
-                {
-                    if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
-                    {
-                        if (summon->IsInCombat())
-                        {
-                            anyInCombat = true;
-                            if (Unit* v = summon->GetVictim())
-                                lastVictimSrc = summon;
-                        }
-                    }
-                }
+                FindFollowersInCombat(anyInCombat, lastVictimSrc);
 
                 if (!anyInCombat)
+                {
+                    // Followers are clear: have them resume following immediately and resume escort.
                     SummonsFollow();
+                    SetEscortPaused(false);
+                    events.CancelEvent(EVENT_CHECK_FOLLOWERS);
+                }
                 else
                 {
                     // Assist followers
