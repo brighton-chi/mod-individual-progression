@@ -60,7 +60,7 @@ enum Caravan
     NPC_NETHER                          = 4684,
 };
 
-constexpr Milliseconds TIME_SHOP_STOP   = 60s; // was 600
+constexpr Milliseconds TIME_SHOP_STOP   = 600s;
 constexpr Milliseconds TIME_HIRE_STOP   = 240s;
 constexpr Milliseconds TIME_SHORT_BREAK = 7s;
 
