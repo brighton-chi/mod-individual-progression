@@ -75,8 +75,8 @@ UPDATE `creature_template` SET `gossip_menu_id` = 3118103, `npcflag` = 3 WHERE `
 UPDATE `creature_template` SET `gossip_menu_id` = 3118105, `npcflag` = 3 WHERE `entry` = 15703;
 UPDATE `creature_template` SET `gossip_menu_id` = 3118107, `npcflag` = 3 WHERE `entry` IN (15702, 15704, 21155);
 
-UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (8792, 8793, 8794, 10500) AND (`AllowableRaces` = 0 OR `AllowableRaces` & 1101);
-UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (8795, 8796, 8797, 10501) AND (`AllowableRaces` = 0 OR `AllowableRaces` & 690);
+UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (8792, 8793, 8794, 10500);
+UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (8795, 8796, 8797, 10501);
 
 DELETE FROM `creature_queststarter` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797, 10500, 10501);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15702, 8792), (15703, 8792), (15704, 8792), (21155, 8792), (15707, 8795), (15708, 8795), (15709, 8795), (21156, 8795);
@@ -184,15 +184,24 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 `TimeAllowed`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `AreaDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, 
 `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `Unknown0`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `VerifiedBuild`) VALUES 
 --
-(108850, 2, 60, 50, -365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21513, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1101, 'Complete the War Effort', '', '', NULL, 'Return to Field Marshal Snowfall in Ironforge.', 0, 0, 0, 0, 0, 0, 0, 0, 21436, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0),
-(108855, 2, 60, 50, -365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21513, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 690, 'Complete the War Effort', '', '', NULL, 'Return to Warlord Gorchuk in Orgrimmar.', 0, 0, 0, 0, 0, 0, 0, 0, 21438, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0);
--- The copies take the races of the quests they copy, so races other modules added to those carry over.
-UPDATE `quest_template` q JOIN `quest_template` p ON p.`ID` = q.`ID` - 100000 SET q.`AllowableRaces` = p.`AllowableRaces` WHERE q.`ID` IN (108850, 108855);
+(108850, 2, 60, 50, -365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21513, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1101,
+'Complete the War Effort', 'Bring the Alliance Commendation Signets that Field Marshal Snowfall asks for to him in Ironforge.',
+'The collectors tell me you have brought every kind of supply we asked for, $N. Bars, herbs, leather, bandages, food: the stockpiles grow by the day.$B$BOne thing remains. Every delivery earns you commendation signets, and each of them is a crate our soldiers will open in the sands of Silithus. Bring me your signets, enough of them, and I will count your part in our preparations as done.$B$BKeep delivering to the collectors until you have them. Ask me at any time and I will tell you how far along you are.', NULL,
+'Return to Field Marshal Snowfall in Ironforge.', 0, 0, 0, 0, 0, 0, 0, 0, 21436, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0),
+(108855, 2, 60, 50, -365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21513, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 690,
+'Complete the War Effort', 'Bring the Horde Commendation Signets that Warlord Gorchuk asks for to him in Orgrimmar.',
+'The collectors tell me you have brought every kind of supply we asked for, $N. Bars, herbs, leather, bandages, food: the stockpiles grow by the day.$B$BOne thing remains. Every delivery earns you commendation signets, and each of them is a crate our warriors will open in the sands of Silithus. Bring me your signets, enough of them, and I will count your part in our preparations as done.$B$BKeep delivering to the collectors until you have them. Ask me at any time and I will tell you how far along you are.', NULL,
+'Return to Warlord Gorchuk in Orgrimmar.', 0, 0, 0, 0, 0, 0, 0, 0, 21438, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0);
 
 DELETE FROM `quest_offer_reward` WHERE `ID` IN (108850, 108855);
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
 (108850, 0, 0, 0, 0, 0, 0, 0, 0, 'You are such a selfless person. Thank you very much for your contribution to the war effort. It\'s people like you that are going to make the difference between success and failure at Ahn\'Qiraj. I just hope that all of this will be enough.$B$BThanks again, $N.', 0),
 (108855, 0, 0, 0, 0, 0, 0, 0, 0, 'You are such a selfless person. Thank you very much for your contribution to the war effort. It\'s people like you that are going to make the difference between success and failure at Ahn\'Qiraj. I just hope that all of this will be enough.$B$BThanks again, $N.', 0);
+
+DELETE FROM `quest_request_items` WHERE `ID` IN (108850, 108855);
+INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES 
+(108850, 0, 0, 'Have you brought the commendation signets, $N? Speak to me again and I will tell you how many you still need.', 0),
+(108855, 0, 0, 'Have you brought the commendation signets, $N? Speak to me again and I will tell you how many you still need.', 0);
 
 DELETE FROM `quest_template_addon` WHERE `ID` IN (108850, 108855);
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
