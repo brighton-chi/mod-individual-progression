@@ -257,17 +257,62 @@ public:
                 summons[2].Clear();
         }
 
+        // Make summons rejoin the leader. When called after combat we ensure they leave combat and clear threat
         void SummonsFollow()
         {
             float dist = 1.0f;
             for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
+            {
                 if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
                 {
+                    // Ensure summon is no longer flagged as fighting, clear threats and auras that block movement.
+                    // Only used when followers are known to be out of combat (call sites check that),
+                    // so this is safe and forces them back into formation.
+                    summon->CombatStop(true);
+                    summon->GetThreatMgr().ClearAllThreat();
+                    summon->RemoveAllAuras();
+
+                    // Reset movement generator and tell them to follow the leader.
                     summon->GetMotionMaster()->Clear(false);
                     summon->StopMoving();
                     summon->GetMotionMaster()->MoveFollow(me, dist, M_PI, MOTION_SLOT_ACTIVE);
+
                     dist += (i == 1 ? 9.5f : 3.0f);
                 }
+            }
+        }
+
+        // Try to detect followers that are in "stuck in combat" state (IsInCombat true but no victim).
+        // Force them out and reissue follow order. Returns true if any follower was recovered.
+        bool RecoverStuckFollowers()
+        {
+            bool recovered = false;
+            float dist = 1.0f;
+
+            for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
+            {
+                if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
+                {
+                    // If summon considered in combat but has no valid victim, it can be a zombie blocking follow.
+                    if (summon->IsInCombat() && !summon->GetVictim())
+                    {
+                        // Forcefully stop combat, clear threat, remove auras that may block move and reissue follow.
+                        summon->CombatStop(true);
+                        summon->GetThreatMgr().ClearAllThreat();
+                        summon->RemoveAllAuras();
+
+                        summon->GetMotionMaster()->Clear(false);
+                        summon->StopMoving();
+                        summon->GetMotionMaster()->MoveFollow(me, dist, M_PI, MOTION_SLOT_ACTIVE);
+
+                        recovered = true;
+                    }
+
+                    dist += (i == 1 ? 9.5f : 3.0f);
+                }
+            }
+
+            return recovered;
         }
 
         void RelocateSummons()
@@ -288,7 +333,7 @@ public:
             me->SetFaction(faction);
         }
 
-        // Helper: collect whether any follower is in combat and keep last combatant source (if any).
+        // Helper: check if any follower is in combat and keep last combatant source (if any).
         void FindFollowersInCombat(bool& anyInCombat, Creature*& lastVictimSrc)
         {
             anyInCombat = false;
@@ -500,10 +545,22 @@ public:
 
                 FindFollowersInCombat(anyInCombat, lastVictimSrc);
 
+                // Recover "zombie" followers first (in combat but no victim). This helps cases where IsInCombat lingers.
+                if (anyInCombat)
+                {
+                    if (RecoverStuckFollowers())
+                    {
+                        // re-evaluate follower combat state after recovery attempts
+                        FindFollowersInCombat(anyInCombat, lastVictimSrc);
+                    }
+                }
+
                 if (!anyInCombat)
                 {
+                    // Followers finished combat: make them rejoin immediately and resume escort
                     SummonsFollow();
                     SetEscortPaused(false);
+                    events.CancelEvent(EVENT_CHECK_FOLLOWERS);
                 }
                 else
                 {
@@ -535,6 +592,15 @@ public:
                 Creature* lastVictimSrc = nullptr;
 
                 FindFollowersInCombat(anyInCombat, lastVictimSrc);
+
+                // Recover any stuck followers that have no victim but remain flagged InCombat
+                if (anyInCombat)
+                {
+                    if (RecoverStuckFollowers())
+                    {
+                        FindFollowersInCombat(anyInCombat, lastVictimSrc);
+                    }
+                }
 
                 if (anyInCombat)
                 {
@@ -583,8 +649,20 @@ public:
 
                 FindFollowersInCombat(anyInCombat, lastVictimSrc);
 
+                // Attempt to recover stuck followers (InCombat without valid victim) before deciding.
+                if (anyInCombat)
+                {
+                    if (RecoverStuckFollowers())
+                        FindFollowersInCombat(anyInCombat, lastVictimSrc);
+                }
+
                 if (!anyInCombat)
+                {
+                    // Followers are clear: have them resume following immediately and resume escort.
                     SummonsFollow();
+                    SetEscortPaused(false);
+                    events.CancelEvent(EVENT_CHECK_FOLLOWERS);
+                }
                 else
                 {
                     // Assist followers
