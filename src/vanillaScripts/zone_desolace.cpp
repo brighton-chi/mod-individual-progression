@@ -60,7 +60,7 @@ enum Caravan
     NPC_NETHER                          = 4684,
 };
 
-constexpr Milliseconds TIME_SHOP_STOP   = 600s;
+constexpr Milliseconds TIME_SHOP_STOP   = 60s; // was 600
 constexpr Milliseconds TIME_HIRE_STOP   = 240s;
 constexpr Milliseconds TIME_SHORT_BREAK = 7s;
 
@@ -288,7 +288,7 @@ public:
             me->SetFaction(faction);
         }
 
-        // Helper: check if any follower is in combat and keep last combatant source (if any).
+        // Helper: collect whether any follower is in combat and keep last combatant source (if any).
         void FindFollowersInCombat(bool& anyInCombat, Creature*& lastVictimSrc)
         {
             anyInCombat = false;
@@ -502,10 +502,8 @@ public:
 
                 if (!anyInCombat)
                 {
-                    // Followers finished combat: make them rejoin immediately and resume escort
                     SummonsFollow();
                     SetEscortPaused(false);
-                    events.CancelEvent(EVENT_CHECK_FOLLOWERS);
                 }
                 else
                 {
@@ -586,12 +584,7 @@ public:
                 FindFollowersInCombat(anyInCombat, lastVictimSrc);
 
                 if (!anyInCombat)
-                {
-                    // Followers are clear: have them resume following immediately and resume escort.
                     SummonsFollow();
-                    SetEscortPaused(false);
-                    events.CancelEvent(EVENT_CHECK_FOLLOWERS);
-                }
                 else
                 {
                     // Assist followers
