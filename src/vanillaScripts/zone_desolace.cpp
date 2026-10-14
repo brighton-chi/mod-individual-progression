@@ -73,7 +73,7 @@ public:
     {
         if (quest->GetQuestId() == QUEST_BODYGUARD_FOR_HIRE || quest->GetQuestId() == QUEST_GIZELTON_CARAVAN)
         {
-            creature->AI()->SetGUID(player->GetGUID());         
+            creature->AI()->SetGUID(player->GetGUID());
             creature->SetWalk(true);
             creature->SetFaction(player->GetFaction());
         }
