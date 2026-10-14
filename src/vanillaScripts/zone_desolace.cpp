@@ -66,24 +66,6 @@ constexpr Milliseconds TIME_SHORT_BREAK = 7s;
 
 class npc_cork_gizelton_ipp : public CreatureScript
 {
-private:
-    void ImmuneFlagSet(Creature* creature, bool remove, uint32 faction)
-    {
-        if (!creature)
-            return;
-
-        creature->SetFaction(faction);
-
-        // If the AI is escort AI, set the faction for all summons as well
-        if (auto* ai = dynamic_cast<npc_cork_gizelton_ipp::npc_cork_gizeltonAI*>(creature->AI()))
-        {
-            for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
-            {
-                if (Creature* summon = ObjectAccessor::GetCreature(*creature, ai->summons[i]))
-                    summon->SetFaction(faction);
-            }
-        }
-    }
 public:
     npc_cork_gizelton_ipp() : CreatureScript("npc_cork_gizelton_ipp") { }
 
@@ -91,10 +73,9 @@ public:
     {
         if (quest->GetQuestId() == QUEST_BODYGUARD_FOR_HIRE || quest->GetQuestId() == QUEST_GIZELTON_CARAVAN)
         {
-            creature->AI()->SetGUID(player->GetGUID());
+            creature->AI()->SetGUID(player->GetGUID());         
             creature->SetWalk(true);
-
-            ImmuneFlagSet(creature, true, player->GetFaction());
+            creature->SetFaction(player->GetFaction());
         }
 
         return true;
@@ -170,6 +151,9 @@ public:
             _playerGUID = playerGUID;
             _faction = faction;
             SetEscortPaused(false);
+
+            // Ensure summons rejoin when escort is unpaused
+            SummonsFollow();
 
             if (Creature* active = !headNorth ? me : ObjectAccessor::GetCreature(*me, summons[0]))
                 active->RemoveNpcFlag(UNIT_NPC_FLAG_QUESTGIVER);
@@ -324,6 +308,10 @@ public:
 
         void ImmuneFlagSet(bool remove, uint32 faction)
         {
+            // Sanity: don't set invalid faction 0
+            if (faction == 0)
+                return;
+
             for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
             {
                 if (Creature* summon = ObjectAccessor::GetCreature(*me, summons[i]))
@@ -520,6 +508,8 @@ public:
             {
             case EVENT_RESUME_PATH:
                 SetEscortPaused(false);
+                // Ensure summons rejoin immediately when escort resumes
+                SummonsFollow();
                 if (Creature* talker = headNorth ? me : ObjectAccessor::GetCreature(*me, summons[0]))
                     talker->AI()->Talk(SAY_CARAVAN_LEAVE);
 
@@ -527,6 +517,8 @@ public:
                 break;
             case EVENT_WAIT_FOR_ASSIST:
                 SetEscortPaused(false);
+                // Ensure summons rejoin when waiting for assist ends
+                SummonsFollow();
                 if (Creature* active = !headNorth ? me : ObjectAccessor::GetCreature(*me, summons[0]))
                     active->RemoveNpcFlag(UNIT_NPC_FLAG_QUESTGIVER);
                 break;
@@ -692,6 +684,29 @@ public:
         }
     };
 };
+
+// top-level helper
+void ImmuneFlagSet(Creature* creature, bool remove, uint32 faction)
+{
+    if (!creature)
+        return;
+
+    // Sanity: don't set invalid faction 0
+    if (faction == 0)
+        return;
+
+    creature->SetFaction(faction);
+
+    // If the AI is escort AI, set the faction for all summons as well
+    if (auto* ai = dynamic_cast<npc_cork_gizelton_ipp::npc_cork_gizeltonAI*>(creature->AI()))
+    {
+        for (uint8 i = 0; i < MAX_CARAVAN_SUMMONS; ++i)
+        {
+            if (Creature* summon = ObjectAccessor::GetCreature(*creature, ai->summons[i]))
+                summon->SetFaction(faction);
+        }
+    }
+}
 
 void AddSC_ipp_zone_desolace()
 {
