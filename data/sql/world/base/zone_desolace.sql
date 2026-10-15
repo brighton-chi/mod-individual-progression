@@ -1270,7 +1270,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (11626, 5, 0, 'Wow! We did it... not sure why we thought we needed the likes of you. Nevertheless, speak with Smeed Scrabblescrew; he will give you your earnings!', 12, 0, 100, 0, 0, 0, 7332, 0, 'Rigger Gizelton');
 
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (11625, 11626, -611627, -611628);
-DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1162500, 1162501, 1162502, 1162503, 1162504, 1162505, 1162506, 1162507, 1162508, 1162509, 1162600, 1162601);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1162500, 1162501, 1162502, 1162503, 1162504, 1162505, 1162506, 1162507, 1162600, 1162601);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
@@ -1278,40 +1278,43 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
 (11625, 0, 0, 0, 19, 0, 100, 0, 5821, 0, 0, 0, 0, 0, 80, 1162500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cork Gizelton - On Quest Accept - Run Script 1162500'),     -- start escort
-(11625, 0, 1, 2, 108, 0, 100, 0, 77, 61162501, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Say Text 1'),
+(11625, 0, 1, 2, 108, 0, 100, 1, 77, 61162501, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Say Text 1'),
 (11625, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162501, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Waypoint Reached - Run Script 1162501'),
-(11625, 0, 3, 4, 108, 0, 100, 0, 105, 61162504, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,  'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 1'), -- needs testing, may need to be same text for Cork
+(11625, 0, 3, 4, 108, 0, 100, 1, 105, 61162504, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,  'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 1'), -- needs testing, may need to be same text for Cork
 (11625, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162505, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Waypoint Reached - Run Script 1162505'),
 --
-(11625, 0, 5, 3, 108, 0, 100, 0, 6, 61162503, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Say Text 2'),
+(11625, 0, 5, 3, 108, 0, 100, 1, 6, 61162503, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Say Text 2'),
 (11625, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162502, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Waypoint Reached - Run Script 1162502'), -- centaur ambush 1
-(11625, 0, 7, 3, 108, 0, 100, 0, 16, 61162503, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Say Text 3'),
+(11625, 0, 7, 3, 108, 0, 100, 1, 16, 61162503, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Say Text 3'),
 (11625, 0, 8, 0, 108, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162502, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162502'), -- centaur ambush 2
-(11625, 0, 9, 3, 108, 0, 100, 0, 23, 61162503, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Say Text 4'),
+(11625, 0, 9, 3, 108, 0, 100, 1, 23, 61162503, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Say Text 4'),
 (11625, 0, 10, 0, 108, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162502, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Run Script 1162502'), -- centaur ambush 3
-(11625, 0, 11, 10, 108, 0, 100, 0, 26, 61162503, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Cork Gizelton - On Waypoint Reached - Say Text 5'),
+(11625, 0, 11, 10, 108, 0, 100, 1, 26, 61162503, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Cork Gizelton - On Waypoint Reached - Say Text 5'),
 (11625, 0, 12, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162503, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162503'), -- complete escort
 (11625, 0, 13, 0, 108, 0, 100, 0, 26, 61162502, 0, 0, 0, 0, 232, 61162504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Cork Gizelton - On Waypoint Reached - Start Waypoints 61162504'), -- peaceful route done, continue to south camp
 (11625, 0, 14, 15, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cork Gizelton - On Respawn - Remove Quest Giver flag'),
 (11625, 0, 15, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 61162501, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cork Gizelton - On Respawn - Start Waypoints 61162501'),
 (11625, 0, 16, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Death - Run Script 1162504'),
 --
-(11625, 0, 17, 18, 108, 0, 100, 0, 13, 61162506, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 2'),
+(11625, 0, 17, 18, 108, 0, 100, 1, 13, 61162506, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 2'),
 (11625, 0, 18, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162506, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162506'), -- demon ambush 1
-(11625, 0, 19, 20, 108, 0, 100, 0, 20, 61162506, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 3'),
+(11625, 0, 19, 20, 108, 0, 100, 1, 20, 61162506, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 3'),
 (11625, 0, 20, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162506, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162506'), -- demon ambush 2
-(11625, 0, 21, 22, 108, 0, 100, 0, 25, 61162506, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 4'),
+(11625, 0, 21, 22, 108, 0, 100, 1, 25, 61162506, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 4'),
 (11625, 0, 22, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162506, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162506'), -- demon ambush 3
-(11625, 0, 23, 24, 108, 0, 100, 0, 27, 61162506, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Say Text 5'),
+(11625, 0, 23, 24, 108, 0, 100, 1, 27, 61162506, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Say Text 5'),
 (11625, 0, 24, 25, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162507, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Run Script 1162507'), -- complete escort
 (11625, 0, 25, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162601, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,    'Cork Gizelton - On Waypoint Reached - Run Script 1162601'), -- give quest credit
 --
-(11625, 0, 26, 0, 108, 0, 100, 1, 52, 61162501, 0, 0, 0, 0, 80, 1162508, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cork Gizelton - On Waypoint Reached - Run Script 1162508'), -- north stop
-(11625, 0, 27, 0, 108, 0, 100, 1, 90, 61162504, 0, 0, 0, 0, 80, 1162509, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cork Gizelton - On Waypoint Reached - Run Script 1162509'), -- south stop
-(11625, 0, 28, 0, 108, 0, 100, 0, 47, 61162507, 0, 0, 0, 0, 80, 1162504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cork Gizelton - On Waypoint Reached - Run Script 1162504'), -- final waypoint. despawn caravan
+(11625, 0, 26, 0, 108, 0, 100, 0, 52, 61162501, 0, 0, 0, 0, 12, @NPC_VENDOR_TRON, 1, 600000, 0,0,0,8,0,0,0,0, -694.61, 1460.7, 90.794, 2.4, 'Cork Gizelton - On Waypoint Reached - Spawn NPC_VENDOR_TRON'), -- north stop
+(11625, 0, 28, 0, 108, 0, 100, 0, 53, 61162501, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cork Gizelton - On Waypoint Reached - Say Text 0'),
+(11625, 0, 29, 0, 108, 0, 100, 0, 90, 61162504, 0, 0, 0, 0, 12, @NPC_SUPER_SELLER, 1, 600000, 0, 0, 0, 8, 0, 0, 0, 0, -1927.48, 2418.02, 60.77, 5.67, 'Script9 - Cork Gizelton - Spawn NPC_VENDOR_TRON'), -- south stop
+(11625, 0, 30, 0, 108, 0, 100, 0, 91, 61162504, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,  'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 0'),
 --
-(11625, 0, 29, 30, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Death - Fail Quest'),
-(11625, 0, 30, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Death - Fail Quest'),
+(11625, 0, 31, 0, 108, 0, 100, 0, 47, 61162507, 0, 0, 0, 0, 80, 1162504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cork Gizelton - On Waypoint Reached - Run Script 1162504'), -- final waypoint. despawn caravan
+--
+(11625, 0, 32, 33, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Death - Fail Quest'),
+(11625, 0, 33, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Death - Fail Quest'),
 --
 (1162500, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Cork Gizelton - Store Targetlist'),
 (1162500, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Cork Gizelton - Remove Quest Giver flag'),
@@ -1358,11 +1361,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (1162507, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 10, 611627, 11564, 0, 0, 0, 0, 0, 0,           'Script9 - Cork Gizelton - Reset faction for kodo 1'),
 (1162507, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 10, 611628, 11564, 0, 0, 0, 0, 0, 0,           'Script9 - Cork Gizelton - Reset faction for kodo 2'),
 (1162507, 9, 5, 0, 0, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 232, 61162507, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Script9 - Cork Gizelton - Start Waypoints 61162507'), -- escort done, continue to final waypoint
---
-(1162508, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, @NPC_VENDOR_TRON, 1, 600000, 0, 0, 0, 8, 0, 0, 0, 0, -694.61, 1460.7, 90.794, 2.4,    'Script9 - Cork Gizelton - North stop: spawn NPC_VENDOR_TRON'),
-(1162508, 9, 1, 0, 0, 0, 100, 0, 0, 0, 600000, 600000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                 'Script9 - Cork Gizelton - Say Text 0'),
-(1162509, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, @NPC_SUPER_SELLER, 1, 600000, 0, 0, 0, 8, 0, 0, 0, 0, -1927.48, 2418.02, 60.77, 5.67, 'Script9 - Cork Gizelton - North stop: spawn NPC_VENDOR_TRON'),
-(1162509, 9, 1, 0, 0, 0, 100, 0, 0, 0, 600000, 600000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,                       'Script9 - Cork Gizelton - Rigger Gizelton Say Text 0'),
 --
 (1162600, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Rigger Gizelton - Store Targetlist'),
 (1162600, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Rigger Gizelton - Remove Quest Giver flag'),
