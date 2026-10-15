@@ -1378,7 +1378,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 --
 (1162601, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 5943, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                'Script9 - Cork Gizelton - Quest Credit'),
 --
-(11626, 0, 0, 1, 19, 0, 100, 0, 5943, 0, 0, 0, 0, 0, 80, 1162600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rigger Gizelton - On Quest Accept - Run Script 1162600'),
+(11626, 0, 0, 0, 19, 0, 100, 0, 5943, 0, 0, 0, 0, 0, 80, 1162600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rigger Gizelton - On Quest Accept - Run Script 1162600'),
 (11626, 0, 1, 2,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                  'Rigger Gizelton - On Death - Fail Quest'),
 (11626, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                  'Rigger Gizelton - On Death - Fail Quest'),
 (11626, 0, 3, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rigger Gizelton - On Respawn - Remove Quest Giver flag'),
