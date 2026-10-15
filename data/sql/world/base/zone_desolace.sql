@@ -1309,7 +1309,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (11625, 0, 25, 26, 108, 0, 100, 1, 25, 61162504, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 4'),
 (11625, 0, 26, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162503, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162503'), -- demon ambush 3
 (11625, 0, 27, 28, 108, 0, 100, 1, 27, 61162504, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Say Text 5'),
-(11625, 0, 28, 29, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162507, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Run Script 1162504'), -- complete escort
+(11625, 0, 28, 29, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cork Gizelton - On Waypoint Reached - Run Script 1162504'), -- complete escort
 (11625, 0, 29, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162601, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,    'Cork Gizelton - On Waypoint Reached - Run Script 1162601'), -- give quest credit
 
 (11625, 0, 30, 0, 108, 0, 100, 0, 134, 61162503, 0, 0, 0, 0, 232, 61162505, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Cork Gizelton - On Waypoint Reached - Start Waypoints 61162505'), -- peaceful route done, continue to final waypoint
@@ -1368,7 +1368,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (1162505, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611628, 11564, 0, 0, 0, 0, 0, 0,          'Script9 - Cork Gizelton - Despawn kodo 2'),
 --
 (1162600, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Rigger Gizelton - Store Targetlist'),
-(1162600, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Rigger Gizelton - Remove Quest Giver flag'),
+(1162600, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Rigger Gizelton - Remove Quest Giver flag'),
 (1162600, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Rigger Gizelton - Close Gossip'),
 (1162600, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 113, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Rigger Gizelton - Set neutral faction for self'),
 (1162600, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 113, 0, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0,         'Script9 - Rigger Gizelton - Set neutral faction for Cork'),
