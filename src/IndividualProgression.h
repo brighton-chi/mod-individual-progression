@@ -227,7 +227,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
     PROGRESSION_MOLTEN_CORE     = 1,
     PROGRESSION_ONYXIA          = 2,  // BWL available
     PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
-    PROGRESSION_PRE_AQ          = 4,  // AQ outdoors war
+    PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war
     PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
     PROGRESSION_AQ              = 6,  // Naxx40 and Scourge Invasion
     PROGRESSION_NAXX40          = 7,  // Into the Breach
