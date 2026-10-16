@@ -1300,7 +1300,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (11625, 0, 17, 0, 108, 0, 100, 0, 105, 61162501, 0, 0, 0, 0, 232, 61162503, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Cork Gizelton - On Waypoint Reached - Start Waypoints 61162503'), -- peaceful route done, continue to south camp
 (11625, 0, 18, 19, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cork Gizelton - On Respawn - Remove Quest Giver flag'),
 (11625, 0, 19, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 61162501, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cork Gizelton - On Respawn - Start Waypoints 61162501'),
-(11625, 0, 20, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Death - Run Script 1162504'),
+(11625, 0, 20, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162505, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Death - Run Script 1162505'), -- when leader dies despawn entire caravan so they respawn at the same time
 --
 (11625, 0, 21, 22, 108, 0, 100, 1, 13, 61162504, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 2'),
 (11625, 0, 22, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162503, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162503'), -- demon ambush 1
@@ -1323,11 +1323,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (11625, 0, 36, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 1, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,          'Cork Gizelton - On Waypoint Reached - Add Gossip flag'),
 (11625, 0, 37, 38, 108, 0, 100, 1, 91, 61162503, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 0'),
 (11625, 0, 38, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 1, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,          'Cork Gizelton - On Waypoint Reached - Remove Gossip flag'),
---
-(11625, 0, 39, 40, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Death - Fail Quest'),
-(11625, 0, 40, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Death - Fail Quest'),
---
--- (11625, 0, 41, 0, 108, 0, 100, 0, 47, 61162505, 0, 0, 0, 0, 80, 1162505, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cork Gizelton - On Waypoint Reached - Run Script 1162505'), -- final waypoint. despawn caravan
 --
 (1162500, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Cork Gizelton - Store Targetlist'),
 (1162500, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Cork Gizelton - Remove Quest Giver flag'),
@@ -1366,6 +1361,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (1162505, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,          'Script9 - Cork Gizelton - Despawn Rigger Gizelton'),
 (1162505, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611627, 11564, 0, 0, 0, 0, 0, 0,          'Script9 - Cork Gizelton - Despawn kodo 1'),
 (1162505, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611628, 11564, 0, 0, 0, 0, 0, 0,          'Script9 - Cork Gizelton - Despawn kodo 2'),
+(1162505, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                 'Script9 - Cork Gizelton - Fail Quest'),
+(1162505, 9, 7, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                 'Script9 - Cork Gizelton - Fail Quest'),
 --
 (1162600, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Rigger Gizelton - Store Targetlist'),
 (1162600, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Rigger Gizelton - Remove Quest Giver flag'),
