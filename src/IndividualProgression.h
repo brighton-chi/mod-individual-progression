@@ -18,6 +18,8 @@
 #include "AreaDefines.h"
 #include "IWorld.h"
 #include <regex>
+#include <shared_mutex>
+#include <unordered_map>
 
 typedef std::unordered_map<uint32, uint32> questXpMapType;
 
@@ -225,7 +227,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
     PROGRESSION_MOLTEN_CORE     = 1,
     PROGRESSION_ONYXIA          = 2,  // BWL available
     PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
-    PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war
+    PROGRESSION_PRE_AQ          = 4,  // AQ outdoors war
     PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
     PROGRESSION_AQ              = 6,  // Naxx40 and Scourge Invasion
     PROGRESSION_NAXX40          = 7,  // Into the Breach
@@ -424,8 +426,11 @@ public:
     void CheckAdjustments(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedAccount(Player* player);
+    bool isExcludedAccount(uint32 accountId);
     bool isBotAccount(Player* player);
+    bool isBotAccount(uint32 accountId);
     bool isNormalAccount(Player* player);
+    void LoadAccountRegexes();
     void SyncBotsProgressionToLeader(Group* group);
     void checkHunterPetSpells(Player* player);
     void checkWarlockPetSpells(Player* player);
@@ -448,6 +453,21 @@ public:
     static void RemovePlayerAchievement(ObjectGuid::LowType playerGUID, uint32 achievementId);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
+
+private:
+    struct AccountMatch
+    {
+        bool excluded = false;
+        bool bot = false;
+    };
+
+    AccountMatch GetAccountMatch(uint32 accountId);
+
+    // excludedAccountsRegex and botAccountsRegex compiled once per config load, and what each
+    // account name matched. The damage and healing hooks ask on map update threads.
+    std::regex _excludedAccountsRegex, _botAccountsRegex;
+    std::unordered_map<uint32, AccountMatch> _accountMatchCache;
+    std::shared_mutex _accountMatchLock;
 };
 
 #define sIndividualProgression IndividualProgression::instance()
