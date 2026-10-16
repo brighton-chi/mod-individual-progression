@@ -1300,7 +1300,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (11625, 0, 17, 0, 108, 0, 100, 0, 105, 61162501, 0, 0, 0, 0, 232, 61162503, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Cork Gizelton - On Waypoint Reached - Start Waypoints 61162503'), -- peaceful route done, continue to south camp
 (11625, 0, 18, 19, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cork Gizelton - On Respawn - Remove Quest Giver flag'),
 (11625, 0, 19, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 61162501, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cork Gizelton - On Respawn - Start Waypoints 61162501'),
-(11625, 0, 20, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162505, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Death - Run Script 1162505'),
+(11625, 0, 20, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162505, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cork Gizelton - On Death - Run Script 1162505'), -- when leader dies despawn entire caravan so they respawn at the same time
 --
 (11625, 0, 21, 22, 108, 0, 100, 1, 13, 61162504, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 2'),
 (11625, 0, 22, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1162503, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cork Gizelton - On Waypoint Reached - Run Script 1162503'), -- demon ambush 1
