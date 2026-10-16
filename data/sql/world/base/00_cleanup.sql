@@ -28,6 +28,9 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id` IN (20278); -- Vixton Pinch
 
 /* the following edits are temporary */
 
+-- clean up mistake in zone_desolace
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 1162505;
+
 -- undo SAI for Doomguard Commander - AC handles this correctly now
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 12396;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
