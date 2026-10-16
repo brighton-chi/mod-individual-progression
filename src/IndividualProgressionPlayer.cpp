@@ -160,8 +160,12 @@ public:
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
-        if (!player || !player->IsInWorld())
+        if (!player)
             return false;
+
+        // Not in world means between maps. The core only teleports such a player as a fallback (homebind after a failed worldport ack), and refusing it strands the player on no map for the session.
+        if (!player->IsInWorld())
+            return true;
 
         if (!sIndividualProgression->enabled || player->IsGameMaster() || !sIndividualProgression->isNormalAccount(player))
             return true;
@@ -387,7 +391,7 @@ public:
                 return false;
 
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= 70 && (!sIndividualProgression->isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
-               return false;
+                return false;
         }
 
         return true;
@@ -405,18 +409,21 @@ public:
         {
             int32 moneyRew = 0;
             int32 XPValue = 0;
+            uint8 playerLvl = player->GetLevel();
 
-            if ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == 60) ||
-                (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == 70))
+            if ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && playerLvl == 60) ||
+                (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && playerLvl == 70))
             {
+                uint32 questLvl = quest->GetQuestLevel() == -1 ? playerLvl : quest->GetQuestLevel();
+                uint32 originalFullXp = quest->XPValue(questLvl);
+
                 if (sIndividualProgression->questXpFix && sIndividualProgression->questXpMap.count(quest->GetQuestId()))
-                {
-                    uint32 vanillaXpValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
-                    uint32 originalXpValue = quest->XPValue(quest->GetQuestLevel() == -1 ? player->GetLevel() : quest->GetQuestLevel());
-                    XPValue *= vanillaXpValue * 1.0 / originalXpValue;
-                }
+                    XPValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
                 else
-                    XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? player->GetLevel() : quest->GetQuestLevel());
+                    XPValue = originalFullXp;
+
+                if (originalFullXp && playerLvl != questLvl)
+                    XPValue *= quest->XPValue(playerLvl) * 1.0 / originalFullXp;
             }
 
             moneyRew = (XPValue * (6 * COPPER)) * sWorld->getRate(RATE_REWARD_BONUS_MONEY);
