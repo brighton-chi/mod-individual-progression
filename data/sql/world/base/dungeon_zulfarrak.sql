@@ -15,7 +15,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5646, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Sandfury Axe Thrower - Outside 30 Range - Start Combat Movement'),
 (5646, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Sandfury Axe Thrower - Within 5-30 Range - Stop Combat Movement'),
 (5646, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Sandfury Axe Thrower - Within 0-5 Range - Start Combat Movement'),
-(5646, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2200, 3900, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Sandfury Axe Thrower - Within 5-30 Range - Cast Throw'),
+(5646, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2200, 3900, 5, 30, 11, 10277, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Sandfury Axe Thrower - Within 5-30 Range - Cast Throw'),
 (5646, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sandfury Axe Thrower - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5647, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 14034, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Sandfury Firecaller - In Combat - Cast Fireball'),
 (5647, 0, 1, 0, 0, 0, 85, 0, 8000, 14000, 20000, 26000, 0, 0, 11, 11990, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Sandfury Firecaller - Within 0-30 Range - Cast Rain of Fire'),
