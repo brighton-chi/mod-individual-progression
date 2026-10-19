@@ -16,7 +16,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11339, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Hakkari Shadow Hunter - Outside 30 Range - Start Combat Movement'),
 (11339, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Hakkari Shadow Hunter - Within 5-30 Range - Stop Combat Movement'),
 (11339, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Hakkari Shadow Hunter - Within 0-5 Range - Start Combat Movement'),
-(11339, 0, 3, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 16496, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hakkari Shadow Hunter - In Combat - Cast Shoot'),
+(11339, 0, 3, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 16496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hakkari Shadow Hunter - In Combat - Cast Shoot'),
 (11339, 0, 4, 0, 9, 0, 100, 0, 0, 0, 10000, 15000, 5, 30, 11, 21390, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Hakkari Shadow Hunter - In Combat - Cast Multi-Shot'),
 (11339, 0, 5, 0, 9, 0, 100, 0, 0, 0, 65000, 85000, 5, 30, 11, 22908, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Hakkari Shadow Hunter - Within 5-30 Range - Cast Volley'),
 (11339, 0, 6, 0, 0, 0, 75, 0, 6000, 12000, 12000, 24000, 0, 0, 11, 24335, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Hakkari Shadow Hunter - Within 0-30 Range - Cast Wyvern Sting'),
