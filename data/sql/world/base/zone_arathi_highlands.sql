@@ -81,7 +81,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2587, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Syndicate Pathstalker - Outside 30 Range - Start Combat Movement'),
 (2587, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Syndicate Pathstalker - Within 5-30 Range - Stop Combat Movement'),
 (2587, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Syndicate Pathstalker - Within 0-5 Range - Start Combat Movement'),   
-(2587, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Syndicate Pathstalker - Within 5-30 Range - Cast Shoot'),
+(2587, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Pathstalker - Within 5-30 Range - Cast Shoot'),
 (2587, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Syndicate Pathstalker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2588, 0, 0, 0, 1, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Syndicate Prowler - Out of Combat - Cast Sneak'),
 (2588, 0, 1, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 28, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Syndicate Prowler - On Aggro - Remove Aura Sneak'),
