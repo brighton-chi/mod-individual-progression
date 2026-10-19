@@ -61,7 +61,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3740, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Saltspittle Muckdweller - Outside 30 Range - Start Combat Movement'),
 (3740, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Saltspittle Muckdweller - Within 5-30 Range - Stop Combat Movement'),
 (3740, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Saltspittle Muckdweller - Within 0-5 Range - Start Combat Movement'),
-(3740, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Saltspittle Muckdweller - Within 5-30 Range - Cast Throw'),
+(3740, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Saltspittle Muckdweller - Within 5-30 Range - Cast Throw'),
 (3740, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Saltspittle Muckdweller - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3742, 0, 0, 0, 0, 0, 100, 0, 1000, 2000, 6000, 14000, 0, 0, 11, 2608, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Saltspittle Oracle - In Combat - Cast Shock'),
 (3742, 0, 1, 0, 2, 0, 100, 0, 0, 30, 54600, 54600, 0, 0, 11, 913, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Saltspittle Oracle - Between 0-30% Health - Cast Healing Wave'),
@@ -142,7 +142,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3808, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Forsaken Dark Stalker - Outside 30 Range - Start Combat Movement'),
 (3808, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Forsaken Dark Stalker - Within 5-30 Range - Stop Combat Movement'),
 (3808, 0, 3, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Forsaken Dark Stalker - Within 0-5 Range - Start Combat Movement'),
-(3808, 0, 4, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Forsaken Dark Stalker - Within 5-30 Range - Cast Throw'),
+(3808, 0, 4, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Forsaken Dark Stalker - Within 5-30 Range - Cast Throw'),
 (3808, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Forsaken Dark Stalker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3810, 0, 0, 0, 2, 0, 100, 1, 0, 10, 0, 0, 0, 0, 11, 4148, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Elder Ashenvale Bear - Between 0-10% Health - Cast Growl of Fortitude (No Repeat)'),
