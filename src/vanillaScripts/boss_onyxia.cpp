@@ -16,11 +16,11 @@
  */
 
 #include "CreatureScript.h"
-#include "PathGenerator.h"
+// #include "PathGenerator.h"
 #include "Player.h"
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
-#include "SpellScript.h"
+// #include "SpellScript.h"
 // #include "SpellScriptLoader.h"
 #include "onyxias_lair.h"
 // #include <algorithm>
