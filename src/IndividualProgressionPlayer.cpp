@@ -73,8 +73,8 @@ public:
         // Allow [Tranquilizing Shot] for 60lvl bots
         if (player->getClass() == CLASS_HUNTER && spellId == 19801)
         {
-            // The "isBotAccount" check is quite resource-intensive, perform it very last
-            if (player->GetLevel() == 60 && sIndividualProgression->isBotAccount(player))
+            // Perform isBotAccount check very last
+            if (player->GetLevel() == 60 && state == Trainer::SpellState::Unavailable && sIndividualProgression->isBotAccount(player))
             {
                 state = Trainer::SpellState::Available;
             }
