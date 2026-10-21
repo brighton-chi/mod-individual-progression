@@ -3388,17 +3388,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-(@CGUID+339), 0, 4, 0, 0, 0, 100, 0, 13000, 13000, 9000, 9000, 0, 0, 11, 21188, 0, 0, 0, 0, 0, 2, 0,0,0,0,0,0,0,0,   'Wing Commander Vipore (strike) - In Combat - Cast Stun Bomb Attack');
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN
-(10981, 10990, 12051, 12052, 12053, 12127, 12159, 13256, 13419, 14282, 14283, 14284, 12050, 13326, 13331, 13422,
- 13328, 13332, 13421, 13358, 13359, 13440, 13441, 13576, 13577, 13324, 13333, 13424, 13329, 13334, 13425,
+(10981, 10990, 12048, 12050, 12051, 12052, 12053, 12127, 12159, 13256, 13324, 13326, 13328, 13331, 13332, 13333,
+ 13358, 13359, 13419, 13421, 13422, 13424, 13425, 13329, 13334, 13440, 13441, 13576, 13577, 14282, 14283, 14284,
  113256, 113419, 112050, 112053, 113236, 113284, 113442, 113443, 113441, 113577);
 
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN
-(10981, 10990, 12051, 12052, 12053, 12127, 12159, 13256, 13419, 14282, 14283, 14284, 12050, 13326, 13331, 13422,
- 13328, 13332, 13421, 13358, 13359, 13440, 13441, 13576, 13577, 13324, 13333, 13424, 13329, 13334, 13425,
+(10981, 10990, 12048, 12050, 12051, 12052, 12053, 12127, 12159, 13256, 13324, 13326, 13328, 13331, 13332, 13333,
+ 13358, 13359, 13419, 13421, 13422, 13424, 13425, 13329, 13334, 13440, 13441, 13576, 13577, 14282, 14283, 14284,
  113256, 113419, 112050, 112053, 113236, 113284, 113442, 113443, 113441, 113577);
 
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN
-(-(@CGUID+701), -(@CGUID+703), -(@CGUID+705), -(@CGUID+707), -(@CGUID+709), -(@CGUID+711), -(@CGUID+713), -(@CGUID+714), -(@CGUID+715),
+(-(@CGUID+606), -(@CGUID+607), -(@CGUID+608), -(@CGUID+609), -(@CGUID+610), -(@CGUID+613), -(@CGUID+615),
+ -(@CGUID+617), -(@CGUID+619), -(@CGUID+621), -(@CGUID+623), -(@CGUID+625), -(@CGUID+627), -(@CGUID+629), -(@CGUID+630),
+ -(@CGUID+701), -(@CGUID+703), -(@CGUID+705), -(@CGUID+707), -(@CGUID+709), -(@CGUID+711), -(@CGUID+713), -(@CGUID+714), -(@CGUID+715),
  -(@CGUID+716), -(@CGUID+717), -(@CGUID+720), -(@CGUID+722), -(@CGUID+724), -(@CGUID+726), -(@CGUID+728), -(@CGUID+730), -(@CGUID+732));
 
 UPDATE `gameobject_template` SET `AIName` = 'SmartGameObjectAI' WHERE `entry` IN (178465, 178670);
@@ -3606,6 +3608,23 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13424, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Champion Guardsman - On Aggro - Cast Charge'),
 (13424, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Champion Guardsman - In Combat - Cast Strike'),
 --
+(-(@CGUID+606), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6060, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Alliance Sentinel - On Respawn - Start Waypoints'),
+(-(@CGUID+607), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6070, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Alliance Sentinel - On Respawn - Start Waypoints'),
+(-(@CGUID+608), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6080, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Alliance Sentinel - On Respawn - Start Waypoints'),
+(-(@CGUID+609), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6090, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Alliance Sentinel - On Respawn - Start Waypoints'),
+(-(@CGUID+610), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6100, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Alliance Sentinel - On Respawn - Start Waypoints'),
+--
+(-(@CGUID+613), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6130, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+615), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6150, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+617), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6170, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+619), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6190, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+621), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6210, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+623), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6230, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+625), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6250, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+627), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6270, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+629), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6290, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+(-(@CGUID+630), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+6300, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Respawn - Start Waypoints'),
+--
 (-(@CGUID+701), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+7010, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Frostwolf Legionnaire - On Respawn - Start Waypoints'),
 (-(@CGUID+703), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+7030, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Frostwolf Legionnaire - On Respawn - Start Waypoints'),
 (-(@CGUID+705), 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+7050, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Frostwolf Legionnaire - On Respawn - Start Waypoints'),
@@ -3643,7 +3662,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 /* MISC */
-UPDATE `creature_template` SET `flags_extra` = flags_extra|134217728 WHERE `entry` = 12051;
+UPDATE `creature_template` SET `flags_extra` = flags_extra|134217728 WHERE `entry` IN (12051, 12127);
 UPDATE `creature_template` SET `name` = 'Commander Dardosh' WHERE `entry` = 13140;
 UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
 UPDATE `creature_template` SET `speed_walk` = 2, `flags_extra` = 0 WHERE entry IN (13256, 13419); -- remove CREATURE_FLAG_EXTRA_INSTANCE_BIND for elemental bosses
