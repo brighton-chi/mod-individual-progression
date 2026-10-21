@@ -53,7 +53,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (16407, 0, 5, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 1640700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spectral Servant - On Spell Hit Weiter Search - Run Script'),
 (16408, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Phantom Valet - On Aggro - Say Line 0'),
 (16408, 0, 1, 0, 6, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Phantom Valet - On Death - Say Line 1'),
-(16408, 0, 2, 0, 0, 1, 100, 0, 4000, 10000, 9000, 15000, 0, 0, 11, 29584, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Phantom Valet - In Combat - Cast Demoralizing Shout'),
+(16408, 0, 2, 0, 0, 0, 100, 0, 4000, 10000, 9000, 15000, 0, 0, 11, 29584, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Phantom Valet - In Combat - Cast Demoralizing Shout'),
 --
 (16409, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Phantom Guest - On Aggro - Say Line 0'),
 (16409, 0, 1, 0, 6, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Phantom Guest - On Death - Say Line 1'),
