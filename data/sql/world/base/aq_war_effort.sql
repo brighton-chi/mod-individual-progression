@@ -193,6 +193,9 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 'The collectors tell me you have brought every kind of supply we asked for, $N. Bars, herbs, leather, bandages, food: the stockpiles grow by the day.$B$BOne thing remains. Every delivery earns you commendation signets, and each of them is a crate our warriors will open in the sands of Silithus. Bring me your signets, enough of them, and I will count your part in our preparations as done.$B$BKeep delivering to the collectors until you have them. Ask me at any time and I will tell you how far along you are.', NULL,
 'Return to Warlord Gorchuk in Orgrimmar.', 0, 0, 0, 0, 0, 0, 0, 0, 21438, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0);
 
+-- The copies take the races of the quests they copy, so races other modules added to those carry over.
+UPDATE `quest_template` q JOIN `quest_template` p ON p.`ID` = q.`ID` - 100000 SET q.`AllowableRaces` = p.`AllowableRaces` WHERE q.`ID` IN (108850, 108855);
+
 DELETE FROM `quest_offer_reward` WHERE `ID` IN (108850, 108855);
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
 (108850, 0, 0, 0, 0, 0, 0, 0, 0, 'You are such a selfless person. Thank you very much for your contribution to the war effort. It\'s people like you that are going to make the difference between success and failure at Ahn\'Qiraj. I just hope that all of this will be enough.$B$BThanks again, $N.', 0),
