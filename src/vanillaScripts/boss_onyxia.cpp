@@ -28,51 +28,54 @@
 
 enum Spells
 {
-    SPELL_WINGBUFFET             = 18500,
-    SPELL_FLAMEBREATH            = 18435,
-    SPELL_CLEAVE                 = 68868,
-    SPELL_TAILSWEEP              = 15847, // 68867,
-    SPELL_FIREBALL               = 18392,
-    SPELL_BELLOWINGROAR          = 18431,
-    SPELL_DEEP_BREATH_TIMER      = 68800,
+    SPELL_WINGBUFFET = 18500,
+    SPELL_FLAMEBREATH = 18435,
+    SPELL_CLEAVE = 68868,
+    SPELL_TAILSWEEP = 15847, // 68867,
+    SPELL_FIREBALL = 18392,
+    SPELL_BELLOWINGROAR = 18431,
+    SPELL_DEEP_BREATH_TIMER = 68800,
 
-    SPELL_OLG_BLASTNOVA          = 68958,
-    SPELL_OLG_IGNITEWEAPON       = 68959,
+    // SPELL_SUMMON_LAIR_GUARD = 68968,
+
+    SPELL_OLG_BLASTNOVA = 68958,
+    SPELL_OLG_IGNITEWEAPON = 68959,
 
     SPELL_ROOKERY_WHELP_SPAWN_IN = 91003, // 15750,
-    SPELL_TELEPORT_SELF          = 42527,
+    SPELL_TELEPORT_SELF = 42527,
 
-    SPELL_BREATH_N_TO_S          = 17086,
-    SPELL_BREATH_S_TO_N          = 18351,
-    SPELL_BREATH_E_TO_W          = 18576,
-    SPELL_BREATH_W_TO_E          = 18609,
-    SPELL_BREATH_NE_TO_SW        = 18564,
-    SPELL_BREATH_SE_TO_NW        = 18584,
-    SPELL_BREATH_SW_TO_NE        = 18596,
-    SPELL_BREATH_NW_TO_SE        = 18617,
+    SPELL_BREATH_N_TO_S = 17086,
+    SPELL_BREATH_S_TO_N = 18351,
+    SPELL_BREATH_E_TO_W = 18576,
+    SPELL_BREATH_W_TO_E = 18609,
+    SPELL_BREATH_NE_TO_SW = 18564,
+    SPELL_BREATH_SE_TO_NW = 18584,
+    SPELL_BREATH_SW_TO_NE = 18596,
+    SPELL_BREATH_NW_TO_SE = 18617,
 
     // Each patch triggers the next one, up to 22202
-    SPELL_HEATED_GROUND          = 22191,
+    SPELL_HEATED_GROUND = 22191,
 };
 
 enum Events
 {
-    EVENT_SPELL_WINGBUFFET       = 1,
-    EVENT_SPELL_FLAMEBREATH      = 2,
-    EVENT_SPELL_TAILSWEEP        = 3,
-    EVENT_SPELL_CLEAVE           = 4,
-    EVENT_START_PHASE_2          = 5,
-    EVENT_AIR_PHASE_ACTION       = 6,
-    EVENT_DEEP_BREATH_TIMER      = 7,
-    EVENT_SPELL_BREATH           = 11,
-    EVENT_START_PHASE_3          = 12,
-    EVENT_PHASE_3_ATTACK         = 13,
-    EVENT_SPELL_BELLOWINGROAR    = 14,
-    EVENT_OLG_SPELL_BLASTNOVA    = 18,
+    EVENT_SPELL_WINGBUFFET = 1,
+    EVENT_SPELL_FLAMEBREATH = 2,
+    EVENT_SPELL_TAILSWEEP = 3,
+    EVENT_SPELL_CLEAVE = 4,
+    EVENT_START_PHASE_2 = 5,
+    EVENT_AIR_PHASE_ACTION = 6,
+    EVENT_DEEP_BREATH_TIMER = 7,
+    EVENT_SPELL_BREATH = 11,
+    EVENT_START_PHASE_3 = 12,
+    EVENT_PHASE_3_ATTACK = 13,
+    EVENT_SPELL_BELLOWINGROAR = 14,
+    // EVENT_SUMMON_LAIR_GUARD = 16,
+    EVENT_OLG_SPELL_BLASTNOVA = 18,
     EVENT_OLG_SPELL_IGNITEWEAPON = 19,
 
-    EVENT_LIFTOFF                = 31,
-    EVENT_FLY_S_TO_N             = 32
+    EVENT_LIFTOFF = 31,
+    EVENT_FLY_S_TO_N = 32
 };
 
 enum Phases
@@ -121,6 +124,8 @@ static OnyxiaMove const OnyxiaMoveData[] =
 };
 
 static_assert(std::size(OnyxiaMoveData) == WP_SOUTH_EAST + 1);
+
+// Position const LairGuardTriggerPos = { -134.40698f, -213.74207f, -70.19801f, 0.01745329f };
 
 enum TaskGroups
 {
@@ -179,6 +184,7 @@ public:
             _manyWhelpsAvailable = false;
             _whelpsRespawn = false;
             _pointWhelpGUIDs.fill(ObjectGuid::Empty);
+            // _lairGuardTriggerGUID.Clear();
 
             // Immune to taunt in vanilla
             me->ApplySpellImmune(0, IMMUNITY_STATE, SPELL_AURA_MOD_TAUNT, true);
@@ -454,6 +460,10 @@ public:
                 DoResetThreatList();
                 me->GetMotionMaster()->MovePoint(POINT_GROUND_SOUTH, OnyxiaMoveData[WP_GROUND_SOUTH].X, OnyxiaMoveData[WP_GROUND_SOUTH].Y, OnyxiaMoveData[WP_GROUND_SOUTH].Z);
 
+                // if (Creature* trigger = me->SummonCreature(NPC_WORLD_TRIGGER, LairGuardTriggerPos, TEMPSUMMON_MANUAL_DESPAWN))
+                //     _lairGuardTriggerGUID = trigger->GetGUID();
+
+                // events.ScheduleEvent(EVENT_SUMMON_LAIR_GUARD, 46s);
                 events.ScheduleEvent(EVENT_DEEP_BREATH_TIMER, 25s, 35s);
                 break;
             }
@@ -486,6 +496,15 @@ public:
                 MoveToWaypoint(WP_NORTH, 8.0f);
                 break;
             }
+            /* case EVENT_SUMMON_LAIR_GUARD:
+            {
+                // Onyxia as original caster makes her the summoner, so the guard joins her summons and engages in JustSummoned
+                if (Creature* trigger = ObjectAccessor::GetCreature(*me, _lairGuardTriggerGUID))
+                    trigger->CastSpell(trigger, SPELL_SUMMON_LAIR_GUARD, CastSpellExtraArgs(true).SetOriginalCaster(me->GetGUID()));
+
+                events.Repeat(46s);
+                break;
+            } */
             case EVENT_DEEP_BREATH_TIMER:
             {
                 DoCastSelf(SPELL_DEEP_BREATH_TIMER, true);
@@ -497,6 +516,7 @@ public:
             {
                 if (_landingPending && _fireballsCast > 0)
                 {
+                    // summons.DespawnEntry(NPC_WORLD_TRIGGER);
                     SetPhase(PHASE_LANDED);
                     break;
                 }
@@ -617,6 +637,7 @@ public:
         bool _manyWhelpsAvailable;
         bool _whelpsRespawn;
         std::array<ObjectGuid, std::size(WhelpSpawnPoints)> _pointWhelpGUIDs;
+        // ObjectGuid _lairGuardTriggerGUID;
     };
 
     CreatureAI* GetAI(Creature* creature) const override
@@ -624,6 +645,7 @@ public:
         return GetOnyxiasLairAI<boss_onyxiaAI_40>(creature);
     };
 };
+
 
 void AddSC_boss_onyxia_40()
 {
