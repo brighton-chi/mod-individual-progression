@@ -3721,67 +3721,67 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 DELETE FROM `creature_text` WHERE `CreatureID` IN (113179, 113180, 113181, 113437, 113438, 113439, 213179, 213180, 213181, 213437, 213438, 213439);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 --
-(113179, 0, 0, '', 12, 7, 100, 0, 0, 0, 8604, 0,  'Guse - On Rescue'),
-(113179, 1, 0, '', 12, 7, 100, 0, 0, 0, 8605, 0,  'Guse - On Return to Base'),
-(113179, 2, 0, '', 14, 7, 100, 0, 0, 0, 8673, 0,  'Guse - On Airstrike Ready'),
-(113179, 3, 0, '', 14, 7, 100, 0, 0, 0, 10339, 0, 'Guse - On Visible in Field of Strife'),
+(113179, 0, 0, '', 12, 0, 100, 0, 0, 0, 8604, 0,  'Guse - On Rescue'),
+(113179, 1, 0, '', 12, 0, 100, 0, 0, 0, 8605, 0,  'Guse - On Return to Base'),
+(113179, 2, 0, '', 14, 0, 100, 0, 0, 0, 8673, 0,  'Guse - On Airstrike Ready'),
+(113179, 3, 0, '', 14, 0, 100, 0, 0, 0, 10339, 0, 'Guse - On Visible in Field of Strife'),
 --
-(113180, 0, 0, '', 12, 7, 100, 0, 0, 0, 8606, 0,  'Jeztor - On Rescue'),
-(113180, 1, 0, '', 12, 7, 100, 0, 0, 0, 8607, 0,  'Jeztor - On Return to Base'),
-(113180, 2, 0, '', 14, 7, 100, 0, 0, 0, 8674, 0,  'Jeztor - On Airstrike Ready'),
-(113180, 3, 0, '', 14, 7, 100, 0, 0, 0, 10343, 0, 'Jeztor - On Visible in Field of Strife'),
-(113180, 4, 0, '', 14, 7, 100, 0, 0, 0, 10342, 0, 'Jeztor - On kill'),
+(113180, 0, 0, '', 12, 0, 100, 0, 0, 0, 8606, 0,  'Jeztor - On Rescue'),
+(113180, 1, 0, '', 12, 0, 100, 0, 0, 0, 8607, 0,  'Jeztor - On Return to Base'),
+(113180, 2, 0, '', 14, 0, 100, 0, 0, 0, 8674, 0,  'Jeztor - On Airstrike Ready'),
+(113180, 3, 0, '', 14, 0, 100, 0, 0, 0, 10343, 0, 'Jeztor - On Visible in Field of Strife'),
+(113180, 4, 0, '', 14, 0, 100, 0, 0, 0, 10342, 0, 'Jeztor - On kill'),
 --
-(113181, 0, 0, '', 12, 7, 100, 0, 0, 0, 8609, 0,  'Mulverick - On Rescue'),
-(113181, 1, 0, '', 12, 7, 100, 0, 0, 0, 8611, 0,  'Mulverick - On Return to Base'),
-(113181, 2, 0, '', 14, 7, 100, 0, 0, 0, 8672, 0,  'Mulverick - On Airstrike Ready'),
-(113181, 3, 0, '', 14, 7, 100, 0, 0, 0, 10347, 0, 'Mulverick - On Visible in Field of Strife'),
-(113181, 4, 0, '', 14, 7, 100, 0, 0, 0, 8610, 0,  'Mulverick - On kill'),
+(113181, 0, 0, '', 12, 0, 100, 0, 0, 0, 8609, 0,  'Mulverick - On Rescue'),
+(113181, 1, 0, '', 12, 0, 100, 0, 0, 0, 8611, 0,  'Mulverick - On Return to Base'),
+(113181, 2, 0, '', 14, 0, 100, 0, 0, 0, 8672, 0,  'Mulverick - On Airstrike Ready'),
+(113181, 3, 0, '', 14, 0, 100, 0, 0, 0, 10347, 0, 'Mulverick - On Visible in Field of Strife'),
+(113181, 4, 0, '', 14, 0, 100, 0, 0, 0, 8610, 0,  'Mulverick - On kill'),
 --
-(113437, 0, 0, '', 12, 7, 100, 0, 0, 0, 8771, 0,  'Ichman - On Rescue'),
-(113437, 1, 0, '', 12, 7, 100, 0, 0, 0, 8772, 0,  'Ichman - On Last Waypoint'), -- This is far enough! Meet me back at base! - Ichman runs back invisible and friendly from here
-(113437, 2, 0, '', 14, 7, 100, 0, 0, 0, 8791, 0,  'Ichman - On Airstrike Ready'),
-(113437, 3, 0, '', 14, 7, 100, 0, 0, 0, 10358, 0, 'Ichman - On Visible in Field of Strife'),
-(113437, 4, 0, '', 14, 7, 100, 0, 0, 0, 8773, 0,  'Ichman - On kill'),
+(113437, 0, 0, '', 12, 0, 100, 0, 0, 0, 8771, 0,  'Ichman - On Rescue'),
+(113437, 1, 0, '', 12, 0, 100, 0, 0, 0, 8772, 0,  'Ichman - On Last Waypoint'), -- This is far enough! Meet me back at base! - Ichman runs back invisible and friendly from here
+(113437, 2, 0, '', 14, 0, 100, 0, 0, 0, 8791, 0,  'Ichman - On Airstrike Ready'),
+(113437, 3, 0, '', 14, 0, 100, 0, 0, 0, 10358, 0, 'Ichman - On Visible in Field of Strife'),
+(113437, 4, 0, '', 14, 0, 100, 0, 0, 0, 8773, 0,  'Ichman - On kill'),
 --
-(113438, 0, 0, '', 12, 7, 100, 0, 0, 0, 8769, 0,  'Slidore - On Rescue'),
-(113438, 1, 0, '', 14, 7, 100, 0, 0, 0, 8794, 0,  'Slidore - On Airstrike Ready'),
-(113438, 2, 0, '', 14, 7, 100, 0, 0, 0, 10356, 0, 'Slidore - On Visible in Field of Strife'),
+(113438, 0, 0, '', 12, 0, 100, 0, 0, 0, 8769, 0,  'Slidore - On Rescue'),
+(113438, 1, 0, '', 14, 0, 100, 0, 0, 0, 8794, 0,  'Slidore - On Airstrike Ready'),
+(113438, 2, 0, '', 14, 0, 100, 0, 0, 0, 10356, 0, 'Slidore - On Visible in Field of Strife'),
 --
-(113439, 0, 0, '', 12, 7, 100, 0, 0, 0, 8770, 0,  'Vipore - On Rescue'),
-(113439, 1, 0, '', 14, 7, 100, 0, 0, 0, 8797, 0,  'Vipore - On Airstrike Ready'),
-(113439, 2, 0, '', 14, 7, 100, 0, 0, 0, 10357, 0, 'Vipore - On Visible in Field of Strife'),
+(113439, 0, 0, '', 12, 0, 100, 0, 0, 0, 8770, 0,  'Vipore - On Rescue'),
+(113439, 1, 0, '', 14, 0, 100, 0, 0, 0, 8797, 0,  'Vipore - On Airstrike Ready'),
+(113439, 2, 0, '', 14, 0, 100, 0, 0, 0, 10357, 0, 'Vipore - On Visible in Field of Strife'),
 --
-(213179, 0, 0, '', 12, 7, 100, 0, 0, 0, 8604, 0,  'Guse - On Rescue'),
-(213179, 1, 0, '', 12, 7, 100, 0, 0, 0, 8605, 0,  'Guse - On Return to Base'),
-(213179, 2, 0, '', 14, 7, 100, 0, 0, 0, 8673, 0,  'Guse - On Airstrike Ready'),
-(213179, 3, 0, '', 14, 7, 100, 0, 0, 0, 10339, 0, 'Guse - On Visible in Field of Strife'),
+(213179, 0, 0, '', 12, 0, 100, 0, 0, 0, 8604, 0,  'Guse - On Rescue'),
+(213179, 1, 0, '', 12, 0, 100, 0, 0, 0, 8605, 0,  'Guse - On Return to Base'),
+(213179, 2, 0, '', 14, 0, 100, 0, 0, 0, 8673, 0,  'Guse - On Airstrike Ready'),
+(213179, 3, 0, '', 14, 0, 100, 0, 0, 0, 10339, 0, 'Guse - On Visible in Field of Strife'),
 --
-(213180, 0, 0, '', 12, 7, 100, 0, 0, 0, 8606, 0,  'Jeztor - On Rescue'),
-(213180, 1, 0, '', 12, 7, 100, 0, 0, 0, 8607, 0,  'Jeztor - On Return to Base'),
-(213180, 2, 0, '', 14, 7, 100, 0, 0, 0, 8674, 0,  'Jeztor - On Airstrike Ready'),
-(213180, 3, 0, '', 14, 7, 100, 0, 0, 0, 10343, 0, 'Jeztor - On Visible in Field of Strife'),
-(213180, 4, 0, '', 14, 7, 100, 0, 0, 0, 10342, 0, 'Jeztor - On kill'),
+(213180, 0, 0, '', 12, 0, 100, 0, 0, 0, 8606, 0,  'Jeztor - On Rescue'),
+(213180, 1, 0, '', 12, 0, 100, 0, 0, 0, 8607, 0,  'Jeztor - On Return to Base'),
+(213180, 2, 0, '', 14, 0, 100, 0, 0, 0, 8674, 0,  'Jeztor - On Airstrike Ready'),
+(213180, 3, 0, '', 14, 0, 100, 0, 0, 0, 10343, 0, 'Jeztor - On Visible in Field of Strife'),
+(213180, 4, 0, '', 14, 0, 100, 0, 0, 0, 10342, 0, 'Jeztor - On kill'),
 --
-(213181, 0, 0, '', 12, 7, 100, 0, 0, 0, 8609, 0,  'Mulverick - On Rescue'),
-(213181, 1, 0, '', 12, 7, 100, 0, 0, 0, 8611, 0,  'Mulverick - On Return to Base'),
-(213181, 2, 0, '', 14, 7, 100, 0, 0, 0, 8672, 0,  'Mulverick - On Airstrike Ready'),
-(213181, 3, 0, '', 14, 7, 100, 0, 0, 0, 10347, 0, 'Mulverick - On Visible in Field of Strife'),
-(213181, 4, 0, '', 14, 7, 100, 0, 0, 0, 8610, 0,  'Mulverick - On kill'),
+(213181, 0, 0, '', 12, 0, 100, 0, 0, 0, 8609, 0,  'Mulverick - On Rescue'),
+(213181, 1, 0, '', 12, 0, 100, 0, 0, 0, 8611, 0,  'Mulverick - On Return to Base'),
+(213181, 2, 0, '', 14, 0, 100, 0, 0, 0, 8672, 0,  'Mulverick - On Airstrike Ready'),
+(213181, 3, 0, '', 14, 0, 100, 0, 0, 0, 10347, 0, 'Mulverick - On Visible in Field of Strife'),
+(213181, 4, 0, '', 14, 0, 100, 0, 0, 0, 8610, 0,  'Mulverick - On kill'),
 --
-(213437, 0, 0, '', 12, 7, 100, 0, 0, 0, 8771, 0,  'Ichman - On Rescue'),
-(213437, 1, 0, '', 12, 7, 100, 0, 0, 0, 8772, 0,  'Ichman - On Last Waypoint'), -- This is far enough! Meet me back at base! - Ichman runs back invisible and friendly from here
-(213437, 2, 0, '', 14, 7, 100, 0, 0, 0, 8791, 0,  'Ichman - On Airstrike Ready'),
-(213437, 3, 0, '', 14, 7, 100, 0, 0, 0, 10358, 0, 'Ichman - On Visible in Field of Strife'),
-(213437, 4, 0, '', 14, 7, 100, 0, 0, 0, 8773, 0,  'Ichman - On kill'),
+(213437, 0, 0, '', 12, 0, 100, 0, 0, 0, 8771, 0,  'Ichman - On Rescue'),
+(213437, 1, 0, '', 12, 0, 100, 0, 0, 0, 8772, 0,  'Ichman - On Last Waypoint'), -- This is far enough! Meet me back at base! - Ichman runs back invisible and friendly from here
+(213437, 2, 0, '', 14, 0, 100, 0, 0, 0, 8791, 0,  'Ichman - On Airstrike Ready'),
+(213437, 3, 0, '', 14, 0, 100, 0, 0, 0, 10358, 0, 'Ichman - On Visible in Field of Strife'),
+(213437, 4, 0, '', 14, 0, 100, 0, 0, 0, 8773, 0,  'Ichman - On kill'),
 --
-(213438, 0, 0, '', 12, 7, 100, 0, 0, 0, 8769, 0,  'Slidore - On Rescue'),
-(213438, 1, 0, '', 14, 7, 100, 0, 0, 0, 8794, 0,  'Slidore - On Airstrike Ready'),
-(213438, 2, 0, '', 14, 7, 100, 0, 0, 0, 10356, 0, 'Slidore - On Visible in Field of Strife'),
+(213438, 0, 0, '', 12, 0, 100, 0, 0, 0, 8769, 0,  'Slidore - On Rescue'),
+(213438, 1, 0, '', 14, 0, 100, 0, 0, 0, 8794, 0,  'Slidore - On Airstrike Ready'),
+(213438, 2, 0, '', 14, 0, 100, 0, 0, 0, 10356, 0, 'Slidore - On Visible in Field of Strife'),
 --
-(213439, 0, 0, '', 12, 7, 100, 0, 0, 0, 8770, 0,  'Vipore - On Rescue'),
-(213439, 1, 0, '', 14, 7, 100, 0, 0, 0, 8797, 0,  'Vipore - On Airstrike Ready'),
-(213439, 2, 0, '', 14, 7, 100, 0, 0, 0, 10357, 0, 'Vipore - On Visible in Field of Strife');
+(213439, 0, 0, '', 12, 0, 100, 0, 0, 0, 8770, 0,  'Vipore - On Rescue'),
+(213439, 1, 0, '', 14, 0, 100, 0, 0, 0, 8797, 0,  'Vipore - On Airstrike Ready'),
+(213439, 2, 0, '', 14, 0, 100, 0, 0, 0, 10357, 0, 'Vipore - On Visible in Field of Strife');
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (@CENTRY+4, @CENTRY+5, @CENTRY+6, @CENTRY+7, @CENTRY+8, @CENTRY+9);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
