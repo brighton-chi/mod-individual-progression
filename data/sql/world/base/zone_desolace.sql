@@ -1323,11 +1323,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (11625, 0, 36, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 1, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,          'Cork Gizelton - On Waypoint Reached - Add Gossip flag'),
 (11625, 0, 37, 38, 108, 0, 100, 1, 91, 61162503, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Waypoint Reached - Rigger Gizelton Say Text 0'),
 (11625, 0, 38, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 1, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,          'Cork Gizelton - On Waypoint Reached - Remove Gossip flag'),
-(11625, 0, 39, 40, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Death - Rigger Gizelton Set Data 1 1 (fails his quest)'),
-(11625, 0, 40, 41, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Death - Despawn Rigger Gizelton'), -- when leader dies despawn entire caravan so they respawn at the same time
-(11625, 0, 41, 42, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611627, 11564, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Death - Despawn kodo 1'),
-(11625, 0, 42, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611628, 11564, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Death - Despawn kodo 2'),
-(11625, 0, 43, 0, 38, 0, 100, 0, 1, 1, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0, 'Cork Gizelton - On Data Set 1 1 - Fail Quest'),
+(11625, 0, 39, 40, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,         'Cork Gizelton - On Death - Rigger Gizelton Set Data 1 1 (fails his quest)'),
+(11625, 0, 40, 41, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,         'Cork Gizelton - On Death - Despawn Rigger Gizelton'), -- when leader dies despawn entire caravan so they respawn at the same time
+(11625, 0, 41, 42, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611627, 11564, 0, 0, 0, 0, 0, 0,         'Cork Gizelton - On Death - Despawn kodo 1'),
+(11625, 0, 42, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, 611628, 11564, 0, 0, 0, 0, 0, 0,          'Cork Gizelton - On Death - Despawn kodo 2'),
+(11625, 0, 43, 0, 38, 0, 100, 0, 1, 1, 0, 0, 0, 0, 6, 5821, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                 'Cork Gizelton - On Data Set 1 1 - Fail Quest'),
 --
 (1162500, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                   'Script9 - Cork Gizelton - Store Targetlist'),
 (1162500, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Cork Gizelton - Remove Quest Giver flag'),
@@ -1372,15 +1372,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (1162601, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 5943, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                'Script9 - Cork Gizelton - Quest Credit'),
 --
 (11626, 0, 0, 0, 19, 0, 100, 0, 5943, 0, 0, 0, 0, 0, 80, 1162600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rigger Gizelton - On Quest Accept - Run Script 1162600'),
-(11626, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0, 'Rigger Gizelton - On Death - Cork Gizelton Set Data 1 1 (fails his quest)'),
+(11626, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0,            'Rigger Gizelton - On Death - Cork Gizelton Set Data 1 1 (fails his quest)'),
 (11626, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                  'Rigger Gizelton - On Death - Fail Quest'),
 (11626, 0, 3, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rigger Gizelton - On Respawn - Remove Quest Giver flag'),
-(11626, 0, 4, 0, 38, 0, 100, 0, 1, 1, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0, 'Rigger Gizelton - On Data Set 1 1 - Fail Quest'),
+(11626, 0, 4, 0, 38, 0, 100, 0, 1, 1, 0, 0, 0, 0, 6, 5943, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                  'Rigger Gizelton - On Data Set 1 1 - Fail Quest'),
 --
-(-611627, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0, 'Gizelton Caravan Kodo - On Death - Cork Gizelton Set Data 1 1 (fails his quest)'),
-(-611627, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Gizelton Caravan Kodo - On Death - Rigger Gizelton Set Data 1 1 (fails his quest)'),
-(-611628, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0, 'Gizelton Caravan Kodo - On Death - Cork Gizelton Set Data 1 1 (fails his quest)'),
-(-611628, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0, 'Gizelton Caravan Kodo - On Death - Rigger Gizelton Set Data 1 1 (fails his quest)');
+(-611627, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0,          'Gizelton Caravan Kodo - On Death - Cork Gizelton Set Data 1 1 (fails his quest)'),
+(-611627, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,         'Gizelton Caravan Kodo - On Death - Rigger Gizelton Set Data 1 1 (fails his quest)'),
+(-611628, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611625, 11625, 0, 0, 0, 0, 0, 0,          'Gizelton Caravan Kodo - On Death - Cork Gizelton Set Data 1 1 (fails his quest)'),
+(-611628, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 611626, 11626, 0, 0, 0, 0, 0, 0,         'Gizelton Caravan Kodo - On Death - Rigger Gizelton Set Data 1 1 (fails his quest)');
 
 DELETE FROM `creature_template` WHERE `entry` = 611625; -- copy gets AC script to avoid worldserver console error for script not being used.
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
