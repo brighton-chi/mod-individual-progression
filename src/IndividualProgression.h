@@ -427,7 +427,7 @@ public:
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedAccount(Player* player);
     bool isExcludedAccount(uint32 accountId);
-    bool isBotAccount(Player* player);
+    bool isBotAccount(const Player* player);
     bool isBotAccount(uint32 accountId);
     bool isNormalAccount(Player* player);
     void LoadAccountRegexes();
