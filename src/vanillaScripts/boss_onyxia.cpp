@@ -646,7 +646,6 @@ public:
     };
 };
 
-
 void AddSC_boss_onyxia_40()
 {
     new boss_onyxia_40();
