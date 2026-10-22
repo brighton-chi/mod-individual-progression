@@ -795,10 +795,8 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (@ARGENT_QUARTERMASTER, 9094), (@ARGENT_QUARTERMASTER, 9317), (@ARGENT_QUARTERMASTER, 9318), (@ARGENT_QUARTERMASTER, 9321), (@ARGENT_QUARTERMASTER, 9337), (@ARGENT_QUARTERMASTER, 9341),
 (@ARGENT_OUTFITTER, 9333), (@ARGENT_OUTFITTER, 9334), (@ARGENT_OUTFITTER, 9335), (@ARGENT_OUTFITTER, 9336), (@ARGENT_OUTFITTER, 9320), (@ARGENT_OUTFITTER, 9343);
 
-UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
-UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341) AND (`AllowableRaces` = 0 OR `AllowableRaces` & 690);
-UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368 WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
-UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343) AND (`AllowableRaces` = 0 OR `AllowableRaces` & 1101);
+UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
+UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN -- make quests repeatable
 (9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
