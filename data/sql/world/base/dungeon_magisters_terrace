@@ -83,7 +83,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (24698, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 0, 8, 11, 44538, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Ethereum Smuggler - Within 0-8 Range - Cast Arcane Explosion'),
 (24698, 0, 2, 3, 0, 0, 100, 0, 10000, 20000, 20000, 30000, 0, 0, 11, 36967, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,  'Ethereum Smuggler - In Combat - Cast Teleport to Player'),
 (24698, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ethereum Smuggler - After Teleport - Set Phase 1'),
-(24698, 0, 4, 0, 9, 1, 100, 0, 0, 0, 600, 600, 0, 5, 11, 36967, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Ethereum Smuggler - In Combat - Cast Arcane Explosion');
+(24698, 0, 4, 0, 9, 1, 100, 0, 0, 0, 600, 600, 0, 5, 11, 44538, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Ethereum Smuggler - In Combat - Cast Arcane Explosion');
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND `SourceEntry` IN (24683, 24684, 24685, 24686, 24687, 24688, 24689, 24690);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`,
