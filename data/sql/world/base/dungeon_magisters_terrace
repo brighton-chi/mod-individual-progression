@@ -84,3 +84,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (24698, 0, 2, 3, 0, 0, 100, 0, 10000, 20000, 20000, 30000, 0, 0, 11, 36967, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,  'Ethereum Smuggler - In Combat - Cast Teleport to Player'),
 (24698, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ethereum Smuggler - After Teleport - Set Phase 1'),
 (24698, 0, 4, 0, 9, 1, 100, 0, 0, 0, 600, 600, 0, 5, 11, 36967, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Ethereum Smuggler - In Combat - Cast Arcane Explosion');
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND `SourceEntry` IN (24683, 24684, 24685, 24686, 24687, 24688, 24689, 24690);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`,
+`ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+--
+(22, 2, 24688, 0, 0, 29, 1, 24722, 10, 0, 0, 0, 0, '',     'Requires Fel Crystal in 10yd to run event'),
+(22, 2, 24689, 0, 0, 29, 1, 24722, 10, 0, 0, 0, 0, '',     'Requires Fel Crystal in 10yd to run event'),
+(22, 2, 24690, 0, 0, 29, 1, 24722, 10, 0, 0, 0, 0, '',     'Requires Fel Crystal in 10yd to run event'),
+--
+(22, 4, 24683, 0, 0, 29, 1, 24808, 5, 0, 0, 0, 0, '',      'Requires Broken Sentinel in 10yd to run event'),
+(22, 7, 24684, 0, 0, 29, 1, 24808, 5, 0, 0, 0, 0, '',      'Requires Broken Sentinel in 10yd to run event'),
+(22, 7, 24685, 0, 0, 29, 1, 24808, 5, 0, 0, 0, 0, '',      'Requires Broken Sentinel in 10yd to run event'),
+(22, 9, 24686, 0, 0, 29, 1, 24808, 5, 0, 0, 0, 0, '',      'Requires Broken Sentinel in 10yd to run event'),
+(22, 5, 24687, 0, 0, 29, 1, 24808, 5, 0, 0, 0, 0, '',      'Requires Broken Sentinel in 10yd to run event');
