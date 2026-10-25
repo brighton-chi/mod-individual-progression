@@ -374,7 +374,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`,
 (23310, 0, 0, 0, 11, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 46907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fel Portal Alarm - On Respawn - Cast Boss Fel Portal State'),
 (23310, 0, 1, 0, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 23, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Fel Portal Alarm - On Data Set 1 1 - Increment Phase');
 -- (23310, 0, 2, 3, 60, 4064, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 12, 25003, 6, 60000, 0, 0, 0, 1, 0,0,0,0,0,0,0,0,  'Fel Portal Alarm - On Update - Summon Creature Emissary of Hate'),
--- (23310, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Fel Portal Alarm - Out of Combat - Set Event Phase 0');
+-- (23310, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Fel Portal Alarm - Out of Combat - Set Event Phase 0');
 
 -- Shattered Sun Warriors coming out of the portal AFTER phase 2
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-673002, -673003, -673004, -673005);
