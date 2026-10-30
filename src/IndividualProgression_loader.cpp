@@ -16,7 +16,6 @@ void AddSC_quest_jail_break_60_2();
 void AddSC_quest_the_masquerade_60_2();
 void AddSC_boss_azuregos_ipp();
 void AddSC_boss_lord_kazzak_60_2();
-void AddSC_boss_chromaggus_60_2_A();
 void AddSC_boss_drakkisath_50_59_B();
 void AddSC_instance_naxxramas();
 void AddSC_boss_anubrekhan_40();
@@ -76,7 +75,6 @@ void Addmod_individual_progressionScripts()
     AddSC_boss_azuregos_ipp();
     AddSC_boss_onyxia_40();
     AddSC_boss_lord_kazzak_60_2();
-    AddSC_boss_chromaggus_60_2_A();
     AddSC_boss_drakkisath_50_59_B();
     AddSC_boss_anubrekhan_40();
     AddSC_boss_faerlina_40();
