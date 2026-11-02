@@ -369,15 +369,18 @@ IndividualProgression::AccountMatch IndividualProgression::GetAccountMatch(uint3
             return itr->second;
     }
 
-    // AccountMgr::GetName is a blocking login database query, so it runs without the lock held
+    // AccountMgr::GetName and GetSecurity are blocking login database queries, so they run without the lock held
     std::string accountName;
     if (!AccountMgr::GetName(accountId, accountName))
         return {};
+
+    uint32 const security = AccountMgr::GetSecurity(accountId);
 
     std::unique_lock<std::shared_mutex> lock(_accountMatchLock);
     AccountMatch match;
     match.excluded = std::regex_match(accountName, _excludedAccountsRegex);
     match.bot = std::regex_match(accountName, _botAccountsRegex);
+    match.gm = security >= SEC_GAMEMASTER;
     _accountMatchCache[accountId] = match;
     return match;
 }
@@ -393,6 +396,12 @@ bool IndividualProgression::isExcludedAccount(Player* player)
 bool IndividualProgression::isExcludedAccount(uint32 accountId)
 {
     return GetAccountMatch(accountId).excluded;
+}
+
+// By the account and not the session: a bot's session has player security, also on a GM's account.
+bool IndividualProgression::isGMAccount(Player* player)
+{
+    return player && GetAccountMatch(player->GetSession()->GetAccountId()).gm;
 }
 
 bool IndividualProgression::isBotAccount(const Player* player)
@@ -417,6 +426,65 @@ bool IndividualProgression::isNormalAccount(Player* player)
         return false;
 
     return true;
+}
+
+// True for gear from an expansion the character has not reached. The id alone would also lock the
+// Death Knight starting gear and heirlooms, which have high ids but a low or no level requirement.
+// A character above its cap, such as a GM's, is not locked: it was never held back by progression.
+bool IndividualProgression::isLockedExpansionGear(Player* player, ItemTemplate const* proto)
+{
+    if (!enabled || !LockLaterExpansionGear || !player || !proto || isExcludedAccount(player))
+        return false;
+
+    if (proto->Class != ITEM_CLASS_WEAPON && proto->Class != ITEM_CLASS_ARMOR)
+        return false;
+
+    uint8 cap;
+    if (isBotAccount(player))
+        cap = BotAccountsMaxLevel;
+    else if (!hasPassedProgression(player, PROGRESSION_PRE_TBC))
+        cap = 60;
+    else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        cap = 70;
+    else
+        return false;
+
+    if (player->GetLevel() > cap)
+        return false;
+
+    if (cap <= 60)
+    {
+        // The Blood Elf and Draenei versions of the vanilla rank gear, sold by the vanilla vendors.
+        if (proto->ItemId >= 29594 && proto->ItemId <= 29617)
+            return false;
+
+        return proto->ItemId >= 23728 && (proto->RequiredLevel >= 57 || proto->ItemLevel > 92);
+    }
+
+    if (cap <= 70)
+    {
+        // TBC gear with WotLK ids: Sunwell jewelcrafting, a Sunwell drop and the last arena and honor rewards.
+        switch (proto->ItemId)
+        {
+            case 35693:
+            case 35694:
+            case 35700:
+            case 35702:
+            case 35703:
+            case 35733:
+            case 36737:
+            case 37739:
+            case 37740:
+            case 37927:
+            case 37928:
+            case 37929:
+                return false;
+        }
+
+        return proto->ItemId >= 35570 && (proto->RequiredLevel >= 67 || proto->ItemLevel > 164);
+    }
+
+    return false;
 }
 
 bool IndividualProgression::isPlayerInDungeonOrRaid(Player* player)
@@ -1122,6 +1190,8 @@ private:
         sIndividualProgression->LimitedSetRepCommand = sConfigMgr->GetOption<bool>("IndividualProgression.LimitedSetRepCommand", true);
         sIndividualProgression->sharedFactionIdsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.sharedFactionIdsRegex", "59|270|349|509|510|529|576|589|609|729|730|749|889|890|909");
         sIndividualProgression->BotAccountsMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.BotAccountsMaxLevel", 80);
+        sIndividualProgression->LockLaterExpansionGear = sConfigMgr->GetOption<bool>("IndividualProgression.LockLaterExpansionGear", false);
+        sIndividualProgression->ProfessionTierCap = sConfigMgr->GetOption<bool>("IndividualProgression.ProfessionTierCap", true);
     }
 
     static void LoadXpValues()
