@@ -281,8 +281,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (22986, 0, 0, 0, 75, 0, 100, 0, 0, 22972, 5, 2000, 0, 0, 50, 185541, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Invis Raven Stone - On Near Sparrowhawk - Spawn Raven Stone Fragment');
 
--- fix speed Monstrous Kaliri - https://www.youtube.com/watch?v=vLIzGAOyQjY
-UPDATE `creature_template` SET `speed_walk` = 4 WHERE `Entry` = 23051; -- was set to 14
+-- fix speed Monstrous Kaliri: the core loops run, and the core template's speed_run of 5 is 35 yd/s
+-- 1.42857 = 10 yd/s, the speed the module's walking loops used (speed_walk 4)
+UPDATE `creature_template` SET `speed_run` = 1.42857 WHERE `entry` = 23051;
 
 -- Alluvion: the sniffed core Skettis spawns don't cover it, so keep the module's pooled spawns
 DELETE FROM `creature` WHERE `id` IN (21730);

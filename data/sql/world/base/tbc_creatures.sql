@@ -9504,9 +9504,6 @@ UPDATE `creature_template` SET `DamageModifier` = 1.2, `ArmorModifier` = 1.00118
 /*  Little Noah  */
 UPDATE `creature_template` SET `DamageModifier` = 3.0 WHERE `entry` = 23050;
 
-/*  Monstrous Kaliri  */
-UPDATE `creature_template` SET `speed_walk` = 14.0, `speed_run` = 1.71429 WHERE `entry` = 23051;
-
 /*  Bladespire Supplicant  */
 UPDATE `creature_template` SET `DamageModifier` = 1.7 WHERE `entry` = 23053;
 
