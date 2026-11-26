@@ -15,8 +15,7 @@ enum BlackUrn
 enum KZDataTypes
 {
     DATA_NIGHTBANE = 10,
-
-    NPC_NIGHTBANE = 17225,
+    NPC_NIGHTBANE  = 17225,
 };
 
 class go_blackened_urn_70 : public GameObjectScript
